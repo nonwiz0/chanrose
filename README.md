@@ -1,11 +1,13 @@
 ﻿# Chanrose's Portfolio
 
-Updated in April 06 , 2021
+Updated in April 20 , 2021
 
 - [Chanrose](https://chanrose.now.sh): my website
+- [DanKazim](https://github.com/dankazim): Dan's site
 
 ## Project list
 
+- [SSAPP](https://github.com/chanrose/scheduleschemer)
 - [AIUTS](https://github.com/chanrose/transactionsystem)
 - [NoteKeeper](https://github.com/chanrose/notebook)
 - [My Tracker](https://on-tracker.vercel.app)
@@ -14,3 +16,8 @@ Updated in April 06 , 2021
 - [The Writer](http://writer.lifedashboard.cloud/)
 - [ESP32's Code](https://github.com/chanrose/esp32/)
 - [mysite's Code](https://github.com/chanrose/mysite)
+
+## Favorite Site:
+- [Onedark.vim](https://github.com/joshdick/onedark.vim)
+- [Vim for Python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
+
