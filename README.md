@@ -1,8 +1,9 @@
-﻿# Chanrose's Portfolio
+﻿# Chanrose
 
-Updated in May 21 , 2021
+This repository is mainly use personally for my projects. You can visit my site at [Chanrose](https://chanrose.cor.run).
 
-- [Chanrose](https://chanrose.cor.run): Check my personal site 
+## My watchlist
+
 - [DanKazim](https://github.com/dankazim): Dan's site
 
 ## Project list
@@ -16,7 +17,17 @@ Updated in May 21 , 2021
 - [ESP32's Code](https://github.com/chanrose/esp32/)
 - [mysite's Code](https://github.com/chanrose/mysite)
 
-## Favorite Site:
-- [Onedark.vim](https://github.com/joshdick/onedark.vim)
-- [Vim for Python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
+## What I familiar with:
+- HTML & CSS
+- JavaScript, JQuery, React
+- Bootstrap, Ionic
+- Git
+- Python, Django
+- !PHP, !Java 
 
+## Vim Customization:
+- [Onedark theme](https://github.com/joshdick/onedark.vim)
+- [Vim for python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
+
+## Latest update
+May 21, 2021
