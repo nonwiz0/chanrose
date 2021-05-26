@@ -1,4 +1,9 @@
-﻿# Chanrose
+﻿# To do list
+- ~~Rework on chanrose's page~~
+- ~~Create a new logo and layout~~
+
+
+# Chanrose
 
 This repository is mainly use personally for my projects. You can visit my site at [Chanrose](https://chanrose.cor.run).
 
@@ -30,4 +35,4 @@ This repository is mainly use personally for my projects. You can visit my site 
 - [Vim for python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
 
 ## Latest update
-May 21, 2021
+May 26, 2021
