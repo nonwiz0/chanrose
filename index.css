@@ -106,11 +106,13 @@ a:hover {
 .flex-container {
   display: flex;
   flex-flow: row wrap;
-  flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: flex-start;
 }
 
+.flex-reverse {
+  flex-wrap: wrap-reverse;
+}
 
 .flex-child-card {
   border-radius: 25px;
@@ -119,7 +121,7 @@ a:hover {
   margin: 10px;
   margin-left: 0;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
-  width: 30vw;
+  width: auto;
   transition: 0.3s;
 }
 
@@ -192,7 +194,7 @@ a:hover {
 
 
 .btn {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 10px 5px 10px;
   border-radius: 25px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
   margin: 5px;
@@ -208,11 +210,18 @@ a:hover {
   color: white;
 }
 
+.max-width {
+  width: 100%;
+}
 
 
 @media (min-width: 700px) {
     body {
         margin: 2em 10vw 2em 10vw;
+    }
+
+    .max-width {
+      width: auto;
     }
 
     .flex-container {

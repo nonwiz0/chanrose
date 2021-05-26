@@ -1,7 +1,7 @@
 ﻿# To do list
 - ~~Rework on chanrose's page~~
 - ~~Create a new logo and layout~~
-- Fix menu navigation
+- ~~Fix menu navigation~~
 
 
 # Chanrose
