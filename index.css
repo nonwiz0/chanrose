@@ -4,13 +4,14 @@
     tab-size: 4;
     --black: #342E37;
     --gray: #4d535e;
-    --red: #FB416C;
+    --red: #FB416C; 
+  /*  --red: #A61C3C; */
     --purple: #4B4DED;
     --jade: #4DBDB2;
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -105,8 +106,9 @@ a:hover {
 .flex-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
@@ -155,12 +157,13 @@ a:hover {
 
 .red-theme {
   background: var(--red);
-  color: white;
+  color: #FFF;
   height: auto;
+  min-width: 200px;
 }
 
 .red-theme:hover {
-  color: black;
+  color: var(--black) ;
   background: white;
   border: none;
 
@@ -168,7 +171,7 @@ a:hover {
 
 .dark-theme:hover {
   border: none;
-  color: black;
+  color: var(--black);
   background: white;
 }
 
