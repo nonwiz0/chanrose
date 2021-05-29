@@ -11,7 +11,9 @@ This repository is mainly use personally for my projects. You can visit my site 
 
 ## My watchlist
 
-- [DanKazim](https://github.com/dankazim): Dan's site
+- [Code on Run](https://cor.run): Our websites
+- [Run on Code](https://app.cor.run): Our code-based ecosystem
+- [DanKazim](https://github.com/dankazim): Link to Dan
 
 ## Project list
 
@@ -32,9 +34,8 @@ This repository is mainly use personally for my projects. You can visit my site 
 - Python, Django
 - !PHP, !Java 
 
-## Vim Customization:
+## Favorite:
 - [Onedark theme](https://github.com/joshdick/onedark.vim)
 - [Vim for python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
+- [PopOS](https://pop.system76.com/)
 
-## Latest update
-May 26, 2021

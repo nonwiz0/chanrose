@@ -201,6 +201,10 @@ a:hover {
   list-style-type: none;
 }
 
+.no-list {
+  list-style-type: none;
+}
+
 .btn:hover {
   text-decoration: none;
 }
