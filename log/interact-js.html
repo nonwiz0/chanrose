@@ -3,14 +3,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />  
   <head>
-    <title>Regular Expression | Learning Log</title>
+    <title>Interacting with JS | Learning Log</title>
     <link rel="stylesheet" type="text/css" href="../index.css" />
     <link rel="icon" href="../images/logo-dark.svg" />
-    <meta name="title" content="Regular Expression" />
-    <meta name="description" content="Learning log about regular expression" />
+    <meta name="title" content="Interacting with JS" />
+    <meta name="description" content="Learning log about Interactivity with JS" />
     <meta name="author" content="Chan Broset" />
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chanrose.cor.run/log/regex.html">
+    <meta property="og:url" content="https://chanrose.cor.run/log/interact-js.html">
     <meta property="og:image" content="./images/chanrose-og.png">
 
   </head>
@@ -18,7 +18,7 @@
   <body>
     <section>
       <!-- Heading / Menu -->
-      <p class="text-gray"><a href="../projects.html">Projects</a> > Regular Expression </p>
+      <p class="text-gray"><a href="../projects.html">Projects</a> > Interact with JS </p>
       <div class="align-center">
         <img
           src="../images/logo-dark.svg"
@@ -38,22 +38,46 @@
 
     <section>
       <! -- Body -->
-      <h2 class="margin-top">Regular Expression</h2>
+      <h2 class="margin-top">Interact with JS</h2>
       <hr />
-      <p><span class="text-gray">May 31, 2021</span> | Learning JS </p>
-      <p>Regular Expression, a.k.a regex, is used to help programmers to find, match, search, replace the text. So what I learn so far? </p>
-      <h4>If this "text" exists in the variable</h4>
-        <pre>
+      <p><span class="text-gray">June 01, 2021</span> | Learning JS </p>
+      <h4>Event Listener</h4>
+      <pre>
         <code>
-          let sentence = "ImBeginnerJS"; 
-          let searchText = /JS/; // What you want to find
-          searchText.test(sentence); // Return T or F
+          window.addEventListener('keydown', function(e) {
+            console.log(e)
+            // e is all about keydown events
+          })
+        </code>
+      </pre>
+      <h4>Query Selector</h4>
+      <pre>
+        <code>
+          // Let's say we have 3 html elements
+           audio data-key="57" src="sounds/sfdas.mp3" 
+           audio data-key="23" src="sounds/test.mp3" 
+           // data-key here is a made up attribute
+           // It's a start to use data-name 
+
+           div class="key" data-key="57"
+           div class="key" data-key="23"
         </code>
         <code>
-          searchText = /JS|gin|Im/; // | means or
-          searchText.test(sentence);
-          </code>
-        </pre>
+           const audio = document.querySelector(`audio[data-key=${57}]`);
+           // audio has many properties such as currentTime, play, stop
+          // Query selecting with where
+          const key = document.querySelector(`.key[data-key=${23}]`);
+          // You can use not just any html element but also class to find the element
+        </code>
+      </pre>
+      <h4>CSS interaction</h4>
+      <pre>
+      <code>
+        key.classList.add('cssClass');
+        // If you target the element, you can add it with this
+      </code>
+
+      </pre>
       <br />
 
       <a href="../projects.html"> ↤ Go Back </a>
@@ -66,7 +90,7 @@
       <!-- Footer -->
       <hr class="margin-top" />
       <div class="align-center">
-        <p>Updated in May 31, 2021 <br /> 
+        <p>Updated in June 01, 2021 <br /> 
         <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
         <a href="mailto:chanrose@pm.me">Proton</a> | 
         <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
