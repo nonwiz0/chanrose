@@ -98,9 +98,10 @@
     </section>
     <script>
 
-      window.addEventListener('keydown', e => {
+      window.addEventListener('keyup', e => {
           let key = document.querySelector(`.key[id="${e.key}"]`);
-        if (key) { 
+          console.log(e);
+          if (key) { 
           key.classList.add("playing");
           let audio = document.querySelector(`audio[data-key=${e.key}]`);
           audio.currentTime = 0;
