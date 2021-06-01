@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS Piano | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Piano" />
+    <meta name="description" content="JS Piano is an inspiration of the first challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-piano.html">
+    <meta property="og:title" content="JS Piano">
+    <meta name="og:description" content="JS Piano is an inspiration of the first challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, Keyboard Event" />
+    <style>
+      .key {
+        transition: .5s;
+
+      }
+      .playing {
+        background: var(--black);
+        color: white;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class=" text-gray"><a href="../projects.html">Projects</a> > JS Piano </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Piano</h2>
+      <hr />
+      <p><span class="text-gray">January 21, 2021</span> | Vanilla JS </p>
+      <p>
+      JS Piano .
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card longer-width max-width" style="height: auto;">
+          <h3> Play Piano Keyboard </h3>
+
+          <div class="flex-container wrap align-center">
+            <div class="btn key" id="a">A</div>
+            <div class="btn key" id="b">B</div>
+            <div class="btn key" id="c">C</div>
+            <div class="btn key" id="d">D</div>
+            <div class="btn key" id="e">E</div>
+            <div class="btn key" id="f">F</div>
+            <div class="btn key" id="g">G</div>
+            <audio src="../media/piano/a5.ogg" data-key="a" />
+            <audio src="../media/piano/b5.ogg" data-key="b" />
+            <audio src="../media/piano/c5.ogg" data-key="c" />
+            <audio src="../media/piano/d5.ogg" data-key="d" />
+            <audio src="../media/piano/e5.ogg" data-key="e" />
+            <audio src="../media/piano/f5.ogg" data-key="f" />
+            <audio src="../media/piano/g5.ogg" data-key="g" />
+          </div>
+        </div>
+
+        <div class="flex-child-card dark-theme max-width align-center">
+          <img src="../media/piano/piano.svg" height="130px"/>
+        </div>
+
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+
+      window.addEventListener('keydown', e => {
+          let key = document.querySelector(`.key[id="${e.key}"]`);
+        if (key) { 
+          key.classList.add("playing");
+          let audio = document.querySelector(`audio[data-key=${e.key}]`);
+          audio.currentTime = 0;
+          audio.play();
+          key.addEventListener('transitionend', (e) => key.classList.remove('playing'));
+        }
+      });
+
+    </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in May 26, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
