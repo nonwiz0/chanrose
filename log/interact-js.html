@@ -70,7 +70,17 @@
           // You can use not just any html element but also class to find the element
         </code>
       </pre>
-      <h4>CSS interaction</h4>
+      <h4>Query SelectorAll</h4>
+      <pre>
+        <code>
+          // You can select all the html objects with
+          let keys = document.querySelectorAll('.keys');
+          // You can do many things such as
+          // Create event listener for each
+          keys.forEach(key => key.addEventListener('event', functionName));
+        </code>
+      </pre>
+      <h4>CSS Interaction</h4>
       <pre>
       <code>
         key.classList.add('cssClass');
