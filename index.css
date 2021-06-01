@@ -156,6 +156,11 @@ a:hover {
   flex-flow: row wrap !important;
 }
 
+.full-width {
+  width: 100% !important;
+  height: auto;
+}
+
 .longer-width {
   width: 50vw;
 }
