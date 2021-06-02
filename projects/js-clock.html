@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS Clock | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Clock" />
+    <meta name="description" content="JS Clock is an inspiration of the second challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-piano.html">
+    <meta property="og:title" content="JS Clock">
+    <meta name="og:description" content="JS Clock is an inspiration of the second challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+.clock {
+  width: 10rem;
+  height: 10rem;
+  border: 15px solid var(--black);
+  border-radius: 50%;
+  position: relative;
+  margin: 50px auto;
+  padding: 2rem;
+  box-shadow: 0 0 0 4px white;
+  background: var(--black);
+} 
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px);
+}
+
+.clock:hover {
+  background: white;
+}
+
+.clock:hover ~ .sec-hand {
+  background: var(--black);
+}
+
+.hand {
+  width: 60%;
+  height: 6px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  margin-left: -10px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: ease;
+}
+
+
+.hr-hand {
+  background: var(--red);
+  z-index: 998;
+  width: 28%;
+  margin-left: 25%;
+
+}
+
+.min-hand {
+  background: var(--jade);
+  z-index: 997;
+  width: 40%;
+  margin-left: 10%;
+}
+
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Clock </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Clock</h2>
+      <hr />
+      <p><span class="text-gray">June 02, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 2 Challenge of 30 day JS, implementing CSS Clock. 
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <div class="flex-container wrap align-center max-width">
+            <div class="clock">
+              <div class="clock-face">
+                <div class="hand hr-hand"></div>
+                <div class="hand min-hand"></div>
+                <div class="hand sec-hand"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-child-card dark-theme full-width align-center">
+          <h4> Vanilla JS</h4>
+          <ul class="no-list">
+            <li> CSS Transform </li>
+            <li> Date Method </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      let clock = document.querySelector(".clock");
+      clock.addEventListener('mouseover', (e) => {
+        document.querySelector(".sec-hand").style.background = "var(--black)";
+      });
+
+      clock.addEventListener('mouseout', (e) => {
+        document.querySelector(".sec-hand").style.background = "white";
+      });
+      setInterval(() => {
+        const present = new Date();
+        let sec = document.querySelector(".sec-hand"), 
+            min = document.querySelector(".min-hand"), 
+            hr = document.querySelector(".hr-hand");
+        hr.style.transform = `rotate(${((present.getHours()/12) * 360)+ 90}deg)`;
+        min.style.transform = `rotate(${((present.getMinutes()/60) * 360)+ 90}deg)`;
+        sec.style.transform = `rotate(${((present.getSeconds()/60) * 360)+ 90}deg)`;
+      }, 1000);
+    </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 02, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
