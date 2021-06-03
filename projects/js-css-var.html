@@ -19,11 +19,12 @@
     <style>
         :root {
           --color: var(--black); 
-          --blur: 2px;
-          --radius: 10px;
+          --blur: 1px;
+          --radius: 100%;
+          --border-scale: 10px;
         }
         .image-control img {
-          border: 20px solid var(--color);
+          border: var(--border-scale) solid var(--color);
           filter: blur(var(--blur));
           border-radius: var(--radius);
         }
@@ -58,16 +59,18 @@
       <hr />
       <p><span class="text-gray">June 03, 2021</span> | Vanilla JS </p>
       <p>
-      Day 2 Challenge of 30 day JS, implementing CSS Clock. 
+      Day 3 Challenge of 30 day JS, implementing CSS Var. 
       <ul>
         <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+        <li>Photo: <a href="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">Pexels</a></li>
       </ul>
       </p>
       <div class="flex-container flex-reverse">
         <div class="flex-child-card full-width">
           <div class="flex-container wrap align-center max-width">
             <div class="image-control align-center">
-              <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" width="400px;">
+              <img 
+                 id="target-img" src="../media/30day/mountain.jpg" width="400px"/>
 
             </div>
          </div>
@@ -78,9 +81,11 @@
           <label for="color">Color: </label>
           <input type="color" id="color"/> <br />
           <label for="blur">Blur: </label>
-          <input type="range" min="0" max="100" id="blur" data-suffix="px" /> <br />
-          <label for="radius">radius: </label>
-          <input type="range" min="0" max="100" id="radius" data-suffix="px" />
+          <input type="range" min="0" max="10" id="blur" value="1" data-suffix="px" /> <br />
+          <label for="radius">Radius: </label>
+          <input type="range" min="0" max="100" value="100" id="radius" data-suffix="%" /> <br />
+          <label for="border-scale">Border width: </label>
+          <input type="range" min="0" max="20" value="10" id="border-scale" data-suffix="px" /> 
         </div>
 
       </div>
@@ -91,16 +96,12 @@
       <!-- End Body -->
     </section>
     <script>
-      const updateHandle = (e) => {
-        console.log(e, e.target, e.target.value);
-      }
-
-      function updateMove() {
-        console.log(this.value);
+      function updateHandle() {
+        document.documentElement.style.setProperty(`--${this.id}`, `${this.value}${this.dataset["suffix"] || ""}`);
       }
       const inputs = document.querySelectorAll('input');
-      inputs.forEach(input => input.addEventListener('change', e => updateHandle(e)));
-      inputs.forEach(input => input.addEventListener('mousemove', updateMove));
+      inputs.forEach(input => input.addEventListener('change', updateHandle));
+      inputs.forEach(input => input.addEventListener('mousemove', updateHandle));
    </script>
 
 

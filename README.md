@@ -2,7 +2,7 @@
 - ~~Rework on chanrose's page~~
 - ~~Create a new logo and layout~~
 - ~~Fix menu navigation~~
-- Update the meta for social media
+- ~~Update the meta for social media~~
 
 
 # Chanrose
