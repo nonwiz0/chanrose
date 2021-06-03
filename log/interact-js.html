@@ -47,6 +47,7 @@
           window.addEventListener('keydown', function(e) {
             console.log(e)
             // e is all about keydown events
+            // Ex: change, keydown, keyup, mouseover, mouseout, mousemove;
           })
         </code>
       </pre>
@@ -67,6 +68,7 @@
            // audio has many properties such as currentTime, play, stop
           // Query selecting with where
           const key = document.querySelector(`.key[data-key=${23}]`);
+          // key.dataset tells about data-key
           // You can use not just any html element but also class to find the element
         </code>
       </pre>
@@ -100,6 +102,28 @@
           setInterval(function, time); 
           // Run function once after time, no repeat
           setTimeOut(function, time); 
+      </code>
+      </pre>
+      <h4>ES6 Fx vs Normal Fx</h4>
+      <pre>
+      <code>
+          const updateHandle = (e) => {
+            console.log(e, e.target, e.target.value);
+          }
+      </code>
+      <code>
+        function updateMove() {
+          console.log(this.value);
+        }
+      </code>
+      <code>
+      const inputs = document.querySelectorAll('input');
+      inputs
+        .forEach(input => input.addEventListener('change', 
+          e => updateHandle(e)));
+      inputs
+        .forEach(input => input.addEventListener('mousemove', 
+          updateMove));
       </code>
       </pre>
 

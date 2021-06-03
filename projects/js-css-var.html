@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS CSS VAR | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS CSS VAR" />
+    <meta name="description" content="JS CSS VAR is an inspiration of the third challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-css-var.html">
+    <meta property="og:title" content="JS CSS VAR">
+    <meta name="og:description" content="JS CSS VAR is an inspiration of the third challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+        :root {
+          --color: var(--black); 
+          --blur: 2px;
+          --radius: 10px;
+        }
+        .image-control img {
+          border: 20px solid var(--color);
+          filter: blur(var(--blur));
+          border-radius: var(--radius);
+        }
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS CSS VAR </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS CSS VAR</h2>
+      <hr />
+      <p><span class="text-gray">June 03, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 2 Challenge of 30 day JS, implementing CSS Clock. 
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <div class="flex-container wrap align-center max-width">
+            <div class="image-control align-center">
+              <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" width="400px;">
+
+            </div>
+         </div>
+        </div>
+
+        <div class="flex-child-card dark-theme full-width">
+          <h4>Control Option</h4>
+          <label for="color">Color: </label>
+          <input type="color" id="color"/> <br />
+          <label for="blur">Blur: </label>
+          <input type="range" min="0" max="100" id="blur" data-suffix="px" /> <br />
+          <label for="radius">radius: </label>
+          <input type="range" min="0" max="100" id="radius" data-suffix="px" />
+        </div>
+
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const updateHandle = (e) => {
+        console.log(e, e.target, e.target.value);
+      }
+
+      function updateMove() {
+        console.log(this.value);
+      }
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach(input => input.addEventListener('change', e => updateHandle(e)));
+      inputs.forEach(input => input.addEventListener('mousemove', updateMove));
+   </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 03, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
