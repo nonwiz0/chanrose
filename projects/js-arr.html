@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS Array | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Array" />
+    <meta name="description" content="JS Array is an inspiration of the fourth challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-css-var.html">
+    <meta property="og:title" content="JS Array">
+    <meta name="og:description" content="JS Array is an inspiration of the fourth challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Array </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Array</h2>
+      <hr />
+      <p><span class="text-gray">June 04, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 4 Challenge of 30 day JS, implementing JS Array.
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <div class="flex-container wrap max-width">
+            <h4 class="align-center">Filter, Map, Reducing</h4>
+          </div>
+        </div>
+
+        <div class="flex-child-card dark-theme full-width">
+          <h4>Data: Please check in console</h4>
+       </div>
+
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+const students = [{
+  "first_name": "Gerhard",
+  "last_name": "Gent",
+  "email": "ggent0@vimeo.com",
+  "gender": "Agender",
+  "born": 1973,
+  "dies": 2039
+}, {
+  "first_name": "Halsey",
+  "last_name": "Doumic",
+  "email": "hdoumic1@hc360.com",
+  "gender": "Male",
+  "born": 1984,
+  "dies": 2087
+}, {
+  "first_name": "Shelly",
+  "last_name": "Dast",
+  "email": "sdast2@tumblr.com",
+  "gender": "Bigender",
+  "born": 2011,
+  "dies": 2028
+}, {
+  "first_name": "Sansone",
+  "last_name": "Youd",
+  "email": "syoud3@businessweek.com",
+  "gender": "Genderqueer",
+  "born": 1991,
+  "dies": 2054
+}, {
+  "first_name": "Rickie",
+  "last_name": "Giuron",
+  "email": "rgiuron4@flickr.com",
+  "gender": "Female",
+  "born": 1989,
+  "dies": 2097
+}, {
+  "first_name": "Wandie",
+  "last_name": "Chipps",
+  "email": "wchipps5@theglobeandmail.com",
+  "gender": "Agender",
+  "born": 1953,
+  "dies": 2070
+}, {
+  "first_name": "Link",
+  "last_name": "Pionter",
+  "email": "lpionter6@1und1.de",
+  "gender": "Agender",
+  "born": 1981,
+  "dies": 2046
+}, {
+  "first_name": "Vidovik",
+  "last_name": "Klausewitz",
+  "email": "vklausewitz7@prlog.org",
+  "gender": "Non-binary",
+  "born": 1990,
+  "dies": 2083
+}, {
+  "first_name": "Abe",
+  "last_name": "Sudell",
+  "email": "asudell8@slideshare.net",
+  "gender": "Genderfluid",
+  "born": 1967,
+  "dies": 2076
+}, {
+  "first_name": "Kakalina",
+  "last_name": "Joney",
+  "email": "kjoney9@tripadvisor.com",
+  "gender": "Polygender",
+  "born": 1991,
+  "dies": 2026
+}]
+console.table(students)
+console.log("Find students that born in or after the year of 1980");
+const filterStudents = students.filter(student => student.born > 1979);
+console.table(filterStudents);
+
+console.log("Sort the students with birth year from recently to oldest");
+console.table(students.sort((curr, next) => {return next.born > curr.born ? 1: -1}))
+
+
+console.log("Get array of first name and last name with map")
+console.table(students.map(student => [student.first_name, student.last_name]));
+
+console.log("Count how many students that born before 1980")
+const countTotal = students.reduce((total, student) => {return total += student.born < 1980 ? 1 : 0}, 0)
+console.log("total", countTotal);
+
+console.log("Count how many female and male");
+const countGender = students.reduce((obj, student) => {
+  if (!obj[student.gender]) {
+    obj[student.gender] = 0;
+  }
+  console.log(student.gender, obj);
+  obj[student.gender]++;
+  return obj;
+}, {})
+console.table(countGender);
+    </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 04, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>

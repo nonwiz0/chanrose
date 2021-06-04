@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  <head>
+    <title>Array JS | Learning Log</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" />
+    <meta name="title" content="Array JS" />
+    <meta name="description" content="Learning log about regular expression" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/log/array-js.html">
+    <meta property="og:image" content="./images/chanrose-og.png">
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > Array JS </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">Array JS</h2>
+      <hr />
+      <p><span class="text-gray">June 04, 2021</span> | Learning JS </p>
+      <h4>Filter the list with condition</h4>
+        <pre>
+        <code>
+        
+    const inventors = [
+      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+    ];
+
+       </code>
+        </pre>
+        <h4>Array Prototype Filter</h4>
+        <pre>
+       <code>
+     const filteredInvestors = investors.filter(investor => investor.year >= 1500 && investor.year <= 1600);
+       // This will return investor with year that is less than 16 and greater than 15 
+      </code>
+        </pre>
+      <h4>Array Protoype Map</h4>
+        <pre>
+        <code>
+        const oneArray = investors.map(investor => `${investor.first} ${investor.last}`);
+        // Return full names of array
+        </code>
+        </pre>
+        <h4> Array Prototype Sort </h4>
+        <pre>
+        <code>
+          const ordered = investors.sort((firstPerson, secondPerson) => firstPerson.year > secondPerson.year ? 1 : -1);
+        // Arranging in order whose year is greater, this starts from least to greatest
+        </code>
+        </pre>
+        <h4> Array Prototype Reduce</h4>
+        <p> Basically, it is like finding the total from a list of objects</p>
+        <pre>
+        <code>
+          const totalYears = investors.reduce((total, investor) => {return total += investor.passed - investor.year}, 0); 
+          // 0 here is the default value for total
+        </code>
+        <code>
+      const data = ['car', 'car', 'duck', 'dog'];
+      const countWord = data.reduce((obj, item) => {
+       if (!obj[item]) obj[item] = 0;
+       obj[item]++;
+       return obj;
+      }, {})
+        </code>
+        </pre>
+      <br />
+
+      <a href="../projects.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in May 31, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
