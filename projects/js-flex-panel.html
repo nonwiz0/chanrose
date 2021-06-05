@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+
+    <title>JS Flex Panel | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Flex Panel" />
+    <meta name="description" content="JS Flex Panel is an inspiration of the fifth challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-flex-panel.html">
+    <meta property="og:title" content="JS Flex Panel">
+    <meta name="og:description" content="JS Flex Panel is an inspiration of the fifth challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+
+          html {
+            box-sizing: border-box;
+          }
+         
+            
+          *, *:before, *:after {
+            box-sizing: inherit;
+          }
+
+          .panels {
+            display: flex;
+            min-height: 50vh;
+            overflow: hidden;
+          }
+          .panel {
+            background: var(--black);
+            box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+            align-items: center;
+            /* Safari transitionend event.propertyName === flex */
+            /* Chrome + FF transitionend event.propertyName === flex-grow */
+            transition:
+              font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+              flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+              background 0.2s;
+            font-size: 20px;
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+         }
+
+          .panel > * {
+            margin: 0;
+            width: 100%;
+            transition: transform 0.5s;
+            flex: 1 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .panel p {
+            text-transform: uppercase;
+            font-family: 'Amatic SC', cursive;
+            text-shadow: 0 0 4px rgb(251, 65, 108), 0 0 14px rgb(52, 46, 55) ;
+            font-size: 2em;
+          }
+
+          .panel > *:first-child {
+            transform: translateY(-100%);
+          }
+
+          .panel.open-active > *:first-child  {
+            transform: translateY(0);
+          }
+
+          .panel.open-active > *:last-child  {
+            transform: translateY(0);
+          }
+
+          .panel > *:last-child {
+            transform: translateY(100%);
+          }
+
+          .panel.open {
+            flex: 5;
+            font-size: 40px;
+          }
+    
+          
+          .p1 {
+            background-image: url("https://images.unsplash.com/photo-1465493251445-c6af8fc40b7a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80");
+          }
+
+          .p2 {
+            background-image: url("https://images.unsplash.com/photo-1566513875272-0e184c92b77c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+          }
+
+          .p3 {
+            background-image: url("https://images.unsplash.com/photo-1553780753-b128e6787eba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80");
+          }
+
+          .p4 {
+            background-image: url("https://images.unsplash.com/photo-1605184020655-61fce68d4a15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=970&q=80");
+          }
+
+
+          
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Flex Panel </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Flex Panel</h2>
+      <hr />
+      <p><span class="text-gray">June 05, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 5 Challenge of 30 day JS, implementing JS Flex Panel.
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <div style="box-sizing: border-box; margin: 0;">
+            <div class="panels">
+              <div class="panel p1">
+                <p>How</p>
+                <p>Are</p>
+                <p>We</p>
+              </div>
+             <div class="panel p2">
+                <p>Have</p>
+                <p>You</p>
+                <p>Are</p>
+              </div>
+             <div class="panel p3">
+                <p>You</p>
+                <p>Ready</p>
+                <p>Going</p>
+              </div>
+             <div class="panel p4">
+                <p>Been</p>
+                <p>Yet</p>
+                <p>Now</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-child-card dark-theme full-width">
+          <h4>Try to click on the image</h4>
+       </div>
+
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+      <script>
+        function toggleOpen() {
+          this.classList.toggle('open');
+        }
+
+        function translateText(e) {
+          console.log(e, this.classList);
+          if (e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+          }
+        }
+
+        const panels = document.querySelectorAll('.panel');
+        panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+        panels.forEach(panel => panel.addEventListener('transitionend', translateText));
+        console.log(panels);
+      </script>
+
+      <!-- End Body -->
+    </section>
+  
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 04, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
