@@ -79,23 +79,28 @@
         <a href="./projects/the-writer.html" class="btn text-gray light-theme" data-type="Content Management System"> The Writer </a>
       </div>
       <script>
-        const projectsList = document.querySelector('#projects-list');
-        const projects = document.querySelector('#projects');
-        const allProjects = projects.querySelectorAll('a');
-        const categories = [...allProjects].reduce((obj, item) => {
-          item = item.dataset.type || '';
-          if (!obj[item]) {
-            obj[item] = 0}
-          obj[item]++;
-          return obj;
-        }, {})
-        let temp = "";
-        Object.entries(categories).forEach(entry => {
-          const [key, val] = entry;
-          temp += `<li>${key}: ${val}</li>`;
-        })
-        projectsList.innerHTML = `<li>Projects: ${projects.childElementCount}</li>` + temp;
+        fetch('/projects.html').then(blob => blob.text()).then(html => {
+          const parser = new DOMParser();
+          html = parser.parseFromString(html, 'text/html');
+          html = html.lastChild;
+          const projectsList = document.querySelector('#projects-list');
+          const projects = html.querySelector('#projects');
+          const allProjects = projects.querySelectorAll('a');
+          const categories = [...allProjects].reduce((obj, item) => {
+            item = item.dataset.type || '';
+            if (!obj[item]) {
+              obj[item] = 0}
+            obj[item]++;
+            return obj;
+          }, {})
+          let temp = "";
+          Object.entries(categories).forEach(entry => {
+            const [key, val] = entry;
+            temp += `<li>${key}: ${val}</li>`;
+          })
+          projectsList.innerHTML = `<li>Projects: ${projects.childElementCount}</li>` + temp;
 
+        }).catch(err => console.log(err));
 
       </script>
 
