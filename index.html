@@ -94,7 +94,11 @@
             return obj;
           }, {})
           let temp = "";
-          Object.entries(categories).forEach(entry => {
+          Object.entries(categories).sort((a, b) => {
+            const [keyA, valA] = a;
+            const [keyB, valB] = b;
+            return valA < valB ? 1 : -1;
+          }).forEach(entry => {
             const [key, val] = entry;
             temp += `<li>${key}: ${val}</li>`;
           })
