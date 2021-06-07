@@ -57,7 +57,7 @@
         <div class="flex-child-card red-theme max-width">
           <h3> Status </h3>
           <ul style="list-style: none;">
-            <li>Projects: 13 </li>
+            <li>Projects: <span id="projects-list"></span> </li>
             <li>Mobile App: 2</li>
             <li>Web App: 4</li>
             <li>Micro Python: 1</li>
@@ -66,14 +66,14 @@
         </div>
       </div>
 
-      <div class="flex-container wrap align-center">
-        <a href="./projects/js-ajax.html" class="btn text-gray light-theme"> JS Ajax </a>
-        <a href="./projects/js-flex-panel.html" class="btn text-gray light-theme"> JS Flex Panel </a>
-        <a href="./projects/js-arr.html" class="btn text-gray light-theme"> JS Array </a>
-        <a href="./projects/js-css-var.html" class="btn text-gray light-theme"> JS CSS Var </a>
-        <a href="./projects/js-clock.html" class="btn text-gray light-theme"> JS Analog Clock </a>
-        <a href="./projects/js-piano.html" class="btn text-gray light-theme"> JS Piano </a>
-        <a href="./projects/schedule-schemer.html" class="btn text-gray light-theme"> Schedule Schemer </a>
+      <div id="projects" class="flex-container wrap align-center">
+        <a href="./projects/js-ajax.html" class="btn text-gray light-theme" data-type="JS"> JS Ajax </a>
+        <a href="./projects/js-flex-panel.html" class="btn text-gray light-theme" data-type="JS"> JS Flex Panel </a>
+        <a href="./projects/js-arr.html" class="btn text-gray light-theme" data-type="JS"> JS Array </a>
+        <a href="./projects/js-css-var.html" class="btn text-gray light-theme" data-type="JS"> JS CSS Var </a>
+        <a href="./projects/js-clock.html" class="btn text-gray light-theme" data-type="JS"> JS Analog Clock </a>
+        <a href="./projects/js-piano.html" class="btn text-gray light-theme" data-type="JS"> JS Piano </a>
+        <a href="./projects/schedule-schemer.html" class="btn text-gray light-theme" > Schedule Schemer </a>
         <a href="./projects/traffic-optimizer.html" class="btn text-gray light-theme"> Traffic Optimizer </a>
         <a href="./projects/transaction-system.html" class="btn text-gray light-theme"> Transaction System </a>
         <a href="./projects/my-tracker.html" class="btn text-gray light-theme"> My Tracker </a>
@@ -81,8 +81,13 @@
         <a href="./projects/vehicle-legal-system.html" class="btn text-gray light-theme"> Vehicle Legal System </a>
         <a href="./projects/alumni-management-system.html"  class="btn text-gray light-theme"> Alumni Management System </a>
         <a href="./projects/the-writer.html" class="btn text-gray light-theme"> The Writer </a>
-
       </div>
+      <script>
+          const projectsList = document.querySelector('#projects-list');
+          const projects = document.querySelector('#projects');
+          projectsList.innerHTML = `${projects.childElementCount}`;
+          console.log(projects.childElementCount, projectsList);
+      </script>
 
       <h2 class="margin-top">Experience</h2>
       <hr />
