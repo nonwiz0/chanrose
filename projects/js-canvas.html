@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS Canvas | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Canvas" />
+    <meta name="description" content="JS Canvas is an inspiration of the eighth challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-canvas.html">
+    <meta property="og:title" content="JS Canvas">
+    <meta name="og:description" content="JS Canvas is an inspiration of the eighth challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Canvas </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Canvas</h2>
+      <hr />
+      <p><span class="text-gray">June 08, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 8 Challenge of 30 day JS, implementing JS Canvas.
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container" style="border: 1px solid var(--black)">
+          <canvas id="draw" width="200" height="200"></canvas>
+          <div>
+            <label for="mode">Mode</label>
+            <select id="mode" value="Draw" onchange="updateMode()">
+              <option>Draw</option>
+              <option>Eraser</option>
+            </select>
+            <input type="color" id="stroke" onchange="updateColor()"/>
+           <label for="weight">Weight:</label>
+            <select id="weight" onchange="updateWeight()">
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+            </select>
+            <input type="button" id="clear" value="Clear" onclick="clearCanvas()" />
+          </div>
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const canvas = document.querySelector('#draw');
+      [canvas.width, canvas.height] = [window.innerWidth/1.2, window.innerHeight/2];
+      const ctx = canvas.getContext('2d');
+      [ctx.strokeStyle, ctx.lineJoin, ctx.lineCap, ctx.lineWidth] = ['#342E37', 'round', 'round', '5'];
+      canvas.style.cursor = "pointer";
+      let lastX, lastY, isDrawing, lastStroke;
+      [lastX, lastY, isDrawing, lastStroke] = [0, 0, false, ctx.strokeStyle];
+
+      function updateWeight() {
+        const weight = document.querySelector('#weight');
+        ctx.lineWidth = weight.value;
+      }
+
+      function updateColor() {
+        const strokeColor = document.querySelector('#stroke');
+        [ctx.strokeStyle, lastStroke] = [strokeColor.value, strokeColor.value];
+      }
+
+      function updateMode() {
+        const mode = document.querySelector('#mode');
+        if (mode.value === 'Draw') {
+          console.log('drawing');
+          ctx.strokeStyle = lastStroke;
+          canvas.style.cursor = "pointer";
+        } else if (mode.value === 'Eraser') {
+          console.log('erasing');
+          ctx.strokeStyle = 'white';
+          canvas.style.cursor = "grab";
+        }
+      }
+
+      function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+      }
+
+      function draw(e) {
+        if (!isDrawing) return;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      }
+
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mousedown', (e) => [isDrawing, lastX, lastY] = [true, e.offsetX, e.offsetY]);
+      canvas.addEventListener('mouseup', () => isDrawing = false);
+      canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+    </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 08, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
