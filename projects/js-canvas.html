@@ -16,6 +16,11 @@
     <meta name="og:description" content="JS Canvas is an inspiration of the eighth challenge of JS 30 days by Wes Bos" />
     <meta property="og:image" content="./images/chanrose-og.png">
     <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+label, select, input {
+  margin: 10px;
+}
+    </style>
 
   </head>
 
@@ -51,9 +56,9 @@
         <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
       </ul>
       </p>
-      <div class="flex-container" style="border: 1px solid var(--black)">
-          <canvas id="draw" width="200" height="200"></canvas>
-          <div>
+      <div class="flex-container">
+          <canvas id="draw" width="200" height="200" style="border: 1px solid var(--black)"></canvas>
+          <div style="background-color: var(--black); color: white; padding: 20px;">
             <label for="mode">Mode</label>
             <select id="mode" value="Draw" onchange="updateMode()">
               <option>Draw</option>
@@ -77,7 +82,7 @@
     </section>
     <script>
       const canvas = document.querySelector('#draw');
-      [canvas.width, canvas.height] = [window.innerWidth/1.2, window.innerHeight/2];
+      [canvas.width, canvas.height] = [window.innerWidth/1.4, window.innerHeight/2];
       const ctx = canvas.getContext('2d');
       [ctx.strokeStyle, ctx.lineJoin, ctx.lineCap, ctx.lineWidth] = ['#342E37', 'round', 'round', '5'];
       canvas.style.cursor = "pointer";
