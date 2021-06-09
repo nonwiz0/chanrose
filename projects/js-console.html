@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title>JS Console | Projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Console" />
+    <meta name="description" content="JS Console is an inspiration of the nineth challenge of JS 30 days by Wes Bos" />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-console.html">
+    <meta property="og:title" content="JS Console">
+    <meta name="og:description" content="JS Console is an inspiration of the nineth challenge of JS 30 days by Wes Bos" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta name="keywords" content="Vanilla JS, CSS Transform" />
+    <style>
+label, select, input {
+  margin: 10px;
+}
+.single-code {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+    </style>
+
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Console </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Console</h2>
+      <hr />
+      <p><span class="text-gray">June 09, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 9 Challenge of 30 day JS, implementing JS Console.
+      <ul>
+        <li>Challenge: <a href="https://javascript30.com/">JavaScript 30 days</a></li>
+      </ul>
+      </p>
+      <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <h3>Console Trick</h3>
+          <h4>Interpolated console</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              console.log("You are %s", 'great!');
+            </code>
+          </div>
+          <button onclick="{console.log('You are %s', 'great!')}" style="width: 100%">Run Code</button>
+
+          <h4>Console with CSS style</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              console.log('%c how are you doing', 'color: green; font-size: 20px;');
+            </code>
+          </div>
+          <button onclick="{console.log('%c how are you doing', 'color: green; font-size: 20px;')}" style="width: 100%">Run Code</button>
+
+          <h4> Console Assert for testing</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              console.assert(Condition, console when is not true);
+            </code>
+          </div>
+          <button onclick="{console.assert(true === false, 'sth is not right!')}" style="width: 100%">Run Code</button>
+
+          <h4>Console Dir (Viewing DOM element)</h4>
+           <div class="dark-theme full-width single-code">
+            <code>
+              console.dir(document.querySelector('p'));
+            </code>
+          </div>
+          <button onclick="{console.dir(document.querySelector('p'))}" style="width: 100%">Run Code</button>
+
+
+          <h4>Console Group for grouping log</h4>
+           <div class="dark-theme full-width single-code">
+            <code>
+              console.group('name of group');
+            </code>
+            <br />
+            <code>
+              // All the console messages
+            </code>
+            <br />
+            <code>
+              console.groupEnd('name of group')
+            </code>
+          </div>
+
+          <h4>Console Count</h4>
+           <div class="dark-theme full-width single-code">
+            <code>
+              console.count('variable');
+            </code>
+            <br />
+            <code>
+              // variable: count
+            </code>
+          </div>
+
+          <h4>Console Timing for measuring the time used</h4>
+           <div class="dark-theme full-width single-code">
+            <code>
+              console.time('name of measurement');
+            </code>
+            <br />
+            <code>
+              // All the operation
+            </code>
+            <br />
+            <code>
+              console.timeEnd('name of measurement')
+            </code>
+            <br />
+            <code>
+              // name of measurement : time in ms
+            </code>
+          </div>
+          <button onclick="fetchData()" style="width: 100%">Run Code</button>
+
+          <h4>Clear all the console</h4>
+           <div class="dark-theme full-width single-code">
+            <code>
+              console.clear();
+            </code>
+          </div>
+          <button onclick="{console.clear()}" style="width: 100%">Run Code</button>
+
+  <h4>Other console</h4>
+           <div class="dark-theme full-width single-code">
+             <code>
+              console.info('info')
+             </code>
+             <br />
+            <code>
+              console.warn('warning');
+            </code>
+            <br />
+            <code> 
+              console.error('error');
+            </code>
+            <br />
+            <code>
+              console.table([{}, {}]);
+            </code>
+          </div>
+          <button onclick="{console.info('info'); console.warn('warning'); console.error('error')}" style="width: 100%">Run Code</button>
+
+        </div>
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const fetchData = () => {
+        console.time('Fetching home page');
+        fetch('https://chanrose.cor.run')
+          .then(data => data.text())
+          .then(html => {
+            const parser = new DOMParser();
+            html = parser.parseFromString(html, 'text/html');
+            console.log(html);
+            console.timeEnd('Fetching home page');
+          });
+      }
+    </script>
+
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 09, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>

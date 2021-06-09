@@ -99,19 +99,168 @@
       }, {})
         </code>
         </pre>
+              <div class="flex-container flex-reverse">
+        <div class="flex-child-card full-width">
+          <div class="flex-container wrap">
+            <h4>Use Some function to find is there anyone that is older born after 2010?</h4>
+            <div class="dark-theme full-width single-code">
+              <code>
+                students.some(student => student.born > 2010); // return true
+              </code>
+            </div>
+            <button onclick="{alert(students.some(student => student.born > 2010))}" style="width: 100%">Run Code</button>
+          </div>
+
+          <h4>Use Every function to find if everyone age is more than 20 years?</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              students.every(student => (student.dies - student.born) > 20);
+            </code>
+          </div>
+          <button onclick="{alert(students.every(student => (student.dies - student.born) > 20))}" style="width: 100%">Run Code</button>
+
+          <h4>Use Find function to find if anyone first name is Halsey?</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              students.find(student => student.first_name === 'Halsey');
+            </code>
+            <br />
+            <code>
+              // This return an object that contain Halsey as first name
+            </code>
+            <br />
+            <code>// Check in console.log when click</code>
+          </div>
+          <button onclick="{console.log(students.find(student => student.first_name === 'Halsey'))}" style="width: 100%">Run Code</button>
+
+        <h4>Use Find Index function to find which index contains 'Doumic' in their email</h4>
+          <div class="dark-theme full-width single-code">
+            <code>
+              students.findIndex(student => student.email.includes("doumic"));
+            </code>
+            <br />
+            <code>
+              // Return index number if exists
+            </code>
+          </div>
+          <button onclick="{alert(students.findIndex(student => student.email.includes('doumic')))}" style="width: 100%">Run Code</button>
+        </div>
+
+      </div>
+
+      <div class="flex-child-card dark-theme full-width">
+        <h4>Students:</h4>
+        <p>There are 10 records of the students, please check in the console</p>     
+        <div style="overflow-x: auto;">
+          <table id="students"> </table>
+        </div>
+      </div>
+
+      </div>
+
+
       <br />
 
       <a href="../projects.html"> ↤ Go Back </a>
 
       <!-- End Body -->
     </section>
+        <script>
+      const students = [{
+        "first_name": "Gerhard",
+        "last_name": "Gent",
+        "email": "ggent0@vimeo.com",
+        "gender": "Agender",
+        "born": 1973,
+        "dies": 2039
+      }, {
+        "first_name": "Halsey",
+        "last_name": "Doumic",
+        "email": "hdoumic1@hc360.com",
+        "gender": "Male",
+        "born": 1984,
+        "dies": 2087
+      }, {
+        "first_name": "Shelly",
+        "last_name": "Dast",
+        "email": "sdast2@tumblr.com",
+        "gender": "Bigender",
+        "born": 2011,
+        "dies": 2028
+      }, {
+        "first_name": "Sansone",
+        "last_name": "Youd",
+        "email": "syoud3@businessweek.com",
+        "gender": "Genderqueer",
+        "born": 1991,
+        "dies": 2054
+      }, {
+        "first_name": "Rickie",
+        "last_name": "Giuron",
+        "email": "rgiuron4@flickr.com",
+        "gender": "Female",
+        "born": 1989,
+        "dies": 2097
+      }, {
+        "first_name": "Wandie",
+        "last_name": "Chipps",
+        "email": "wchipps5@theglobeandmail.com",
+        "gender": "Agender",
+        "born": 1953,
+        "dies": 2070
+      }, {
+        "first_name": "Link",
+        "last_name": "Pionter",
+        "email": "lpionter6@1und1.de",
+        "gender": "Agender",
+        "born": 1981,
+        "dies": 2046
+      }, {
+        "first_name": "Vidovik",
+        "last_name": "Klausewitz",
+        "email": "vklausewitz7@prlog.org",
+        "gender": "Non-binary",
+        "born": 1990,
+        "dies": 2083
+      }, {
+        "first_name": "Abe",
+        "last_name": "Sudell",
+        "email": "asudell8@slideshare.net",
+        "gender": "Genderfluid",
+        "born": 1967,
+        "dies": 2076
+      }, {
+        "first_name": "Kakalina",
+        "last_name": "Joney",
+        "email": "kjoney9@tripadvisor.com",
+        "gender": "Polygender",
+        "born": 1991,
+        "dies": 2026
+      }]
+      console.table(students)
+      const studentsTable = document.querySelector('#students');
+      let temp = '<table><tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Gender</th><th>Born</th><th>Dies</th></tr>';
+      students
+        .forEach(student => {
+          temp += `<tr>`;
+          Object.entries(student)
+            .forEach(entry => {
+              const [key, val] = entry;
+              temp += `<td>${val}</td>`
+            })
+          temp += `</tr>`;
+        });
+      temp += '</table>';
+      studentsTable.innerHTML = temp;
+    </script>
+
 
 
     <section>
       <!-- Footer -->
       <hr class="margin-top" />
       <div class="align-center">
-        <p>Updated in May 31, 2021 <br /> 
+        <p>Updated in June 09, 2021 <br /> 
         <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
         <a href="mailto:chanrose@pm.me">Proton</a> | 
         <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
