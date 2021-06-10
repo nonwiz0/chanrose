@@ -4,7 +4,6 @@
 - ~~Fix menu navigation~~
 - ~~Update the meta for social media~~
 
-
 # Chanrose
 
 This repository is mainly use personally for my projects. You can visit my site at [Chanrose](https://chanrose.cor.run).
