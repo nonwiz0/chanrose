@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS To Do | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS To Do" />
+    <meta name="description" content="JS To Do: Implementation of Day 10 JS Checkbox " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-to-do.html">
+    <meta property="og:title" content="JS To Do">
+    <meta name="og:description" content="JS To Do: Implementation of Day 10 JS Checkbox" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS To Do </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS To Do</h2>
+      <hr />
+      <p><span class="text-gray">June 10, 2021</span> | Vanilla JS </p>
+      <p>
+      Implementation of Day 10 JS Checkbox
+      </p>
+      <div class="flex-container">
+        <div class="flex-child-card light-theme full-width">
+          <h4>To do list:</h4>
+          <ul class="no-list" id="list-task">
+            <li>
+              <input type="checkbox" /> 
+              Task num 1
+            </li>
+              <li>
+              <input type="checkbox" />
+              Task num 2</li>
+          <li>
+              <input type="checkbox" />
+              Task num 3</li>
+          <li>
+              <input type="checkbox" />
+              Task num 4</li>
+          <li>
+              <input type="checkbox" />
+              Task num 5</li>
+          </ul>
+        </div>
+        <div class="flex-child-card dark-theme">
+          <h4>Add List:</h4>
+          <label for="item">New Task:</label>
+          <input type="text" id="task" /> <br />
+          <div class="mt-short">
+            <input type="submit" value="Add" onclick="addTask()" style="float: left"/>
+            <button style="float: right" onclick="clearTask()">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const listTask = document.querySelector('#list-task');
+      let checkboxes = document.querySelectorAll('input[type=checkbox]');
+      let arrCheckboxes = [...checkboxes];
+      let firstSelect, latestSelect, holdShift;
+      holdShift = false;
+
+      function checkList(e) {
+        let inBetween = false;
+        if (e.shiftKey && this.checked) {
+          arrCheckboxes.forEach(checkbox => {
+            if (checkbox === this || checkbox === latestSelect) {
+              inBetween = !inBetween;
+            }
+            if (inBetween) {
+              checkbox.checked = true;
+              checkbox.parentElement.style.textDecoration = 'line-through';
+
+            }
+          })
+        }
+
+        latestSelect = this;
+          // this.checked == true ? this.checked = false : this.checked = true;
+          this.checked ? this.parentElement.style.textDecoration = 'line-through' : this.parentElement.style.textDecoration = 'none';
+      }
+
+      function addTask() {
+        const newTask = document.querySelector('#task');
+        listTask.innerHTML += `<li><input type="checkbox" />
+            ${newTask.value}</li>`;
+        console.log(newTask.value, listTask);
+        arrCheckboxes = [...document.querySelectorAll('input[type=checkbox]')];
+        arrCheckboxes.forEach(checkbox => checkbox.addEventListener('click', checkList));
+      }
+
+      function clearTask() {
+        listTask.innerHTML = ""
+      }
+
+      function bulkCheck(e) {
+        holdShift = true;
+        console.log("Shift is hold")
+      }
+
+      arrCheckboxes.forEach(checkbox => checkbox.checked = false);
+      arrCheckboxes.forEach(checkbox => checkbox.addEventListener('click', checkList));
+      window.addEventListener('keydown', bulkCheck);
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 10, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>

@@ -113,6 +113,10 @@ a:hover {
     margin: 5vh 0 0 0;
 }
 
+.mt-short {
+  margin-top: 1rem;
+}
+
 .margin-bot {
     margin: 0 0 5vh 0;
 }
