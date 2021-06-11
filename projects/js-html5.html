@@ -15,6 +15,151 @@
     <meta property="og:title" content="JS HTML5">
     <meta name="og:description" content="JS HTML5: Implementation of day 11 from 30 days JS challenge" />
     <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+
+.player {
+  max-width: 750px;
+  border: 5px solid rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* This css is only applied when fullscreen is active. */
+.player:fullscreen {
+  max-width: none;
+  width: 100%;
+}
+
+.player:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.player__video {
+  width: 100%;
+}
+
+.player__button {
+  background: none;
+  border: 0;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  max-width: 50px;
+}
+
+.player__button:focus {
+  border-color: var(--red)
+}
+
+.player__slider {
+  width: 10px;
+  height: 30px;
+}
+
+.player__controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%) translateY(-5px);
+  transition: all .3s;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.1);
+}
+
+.player:hover .player__controls {
+  transform: translateY(0);
+}
+
+.player:hover .progress {
+  height: 15px;
+}
+
+.player__controls > * {
+  flex: 1;
+}
+
+.progress {
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  transition: height 0.3s;
+  background: var(--black);
+  cursor: ew-resize;
+}
+
+.progress__filled {
+  width: 50%;
+  background: var(--red);
+  flex: 0;
+  flex-basis: 0%;
+}
+
+/* unholy css to style input type="range" */
+
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 100%;
+  margin: 0 5px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: var(--red);
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: var(--red);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.5px;
+  box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--red);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: #ffffff;
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: var(--jade);
+  cursor: pointer;
+}
+    </style>
   </head>
 
   <body>
@@ -44,13 +189,82 @@
       <hr />
       <p><span class="text-gray">June 11, 2021</span> | Vanilla JS </p>
       <p>
-        Implementation of day 11 from 30 days JS challenge
+      Implementation of day 11 from 30 days JS challenge, video by <a href="https://www.pexels.com/video/a-breathtaking-view-of-a-sunset-5146506/">Taryn Elliott</a>
      </p>
+     <div class="">
+   <div class="player">
+     <video class="player__video viewer" src="../media/30day/js-html5/landscape.mp4" ></video>
+
+     <div class="player__controls">
+       <div class="progress">
+        <div class="progress__filled"></div>
+       </div>
+       <button class="player__button toggle" title="Toggle Play">►</button>
+       <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+       <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+       <button data-skip="-2" class="player__button">« 2s</button>
+       <button data-skip="2" class="player__button">2s »</button>
+     </div>
+   </div>
+
+     </div>
 
       <br />
       <a href="../index.html"> ↤ Go Back </a>
 
       <!-- End Body -->
+      <script>
+        const video = document.querySelector('video');
+        const player = document.querySelector('.player');
+        const progressBar = document.querySelector('.progress__filled');
+        const progress = document.querySelector('.progress');
+        const toggle = document.querySelector('.toggle');
+        const skipButtons = document.querySelectorAll('[data-skip]');
+        const ranges = player.querySelectorAll('.player__slider');
+
+
+        function togglePlay() {
+          video.paused ? video.play() : video.pause();
+        }
+
+        function updateToggle() {
+          toggle.textContent = this.paused ? "►" : "⏸";
+        }
+
+        function skip() {
+          video.currentTime += parseFloat(this.dataset['skip']);
+        }
+
+        function handleRangeUpdate() {
+          video[this.name] = this.value;
+        }
+
+        function handleProgress() {
+          progressBar.style.flexBasis = `${(video.currentTime/video.duration) * 100}%`;
+        }
+
+        function handleMove(e) {
+          video.currentTime = (e.offsetX / progress.offsetWidth) * video.duration;
+        }
+
+        video.addEventListener('click', togglePlay);
+        toggle.addEventListener('click', togglePlay);
+        video.addEventListener('play', updateToggle);
+        video.addEventListener('pause', updateToggle);
+        video.addEventListener('timeupdate', handleProgress);
+        skipButtons.forEach(btn => btn.addEventListener('click', skip));
+        ranges.forEach(range => range.addEventListener('change', handleRangeUpdate))
+        ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate))
+        progress.addEventListener('click', handleMove);
+
+        let mousedown = false;
+        progress.addEventListener('mousemove', (e) => mousedown && handleMove(e));
+        progress.addEventListener('mousedown', () => mousedown = true);
+        progress.addEventListener('mouseup', () => mousedown = false);
+
+
+
+      </script>
     </section>
 
     <section>
