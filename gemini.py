@@ -50,7 +50,6 @@ def create_page():
     new_file.write(temp)
     new_file.close()
     f_template.close()
-
     print(f"Generated {obj['belongs']}/{obj['titleUrl']}.html Complete")
     update_projects(obj)
 
@@ -61,7 +60,12 @@ def update_projects(obj):
     text = open_file.read()
     open_file.close()
     a_href = f"<a href='./projects/{new_link}' class='btn text-gray light-theme' data-type='{obj['type']}'> {obj['title']} </a>"
+    # Add a href button under projects
     text = text.replace("<!-- @{newLink} -->", "<!-- @{newLink} -->\n\t\t\t\t"+ a_href)
+    # Update footer date
+    start_date = "<!-- @{date} -->"
+    end_date = "<!-- @{endDate} -->"
+    text = text.replace(text[text.find(start_date) + len(start_date) + 1: text.find(end_date) - 1], obj['date'])
     open_file = open(file_path, 'w')
     open_file.write(text)
     open_file.close()
