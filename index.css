@@ -8,6 +8,8 @@
   /*  --red: #A61C3C; */
     --purple: #4B4DED;
     --jade: #4DBDB2;
+    --white: white;
+
 }
 
 ::-webkit-scrollbar {
@@ -38,7 +40,8 @@ html {
 body {
     font-family: "Liberation Sans";
     margin: 2em 2em 2em 2em;
-    background-color: #FFF;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 
@@ -77,19 +80,19 @@ a {
 
 .jjs-code {
   background: var(--black);
-  color: white;
+  color: var(--white);
   font-family: Inter;
   font-size: 1.2em;
 }
 pre code {
   display: block;
-  white-space: pre;
+  var(--white)-space: pre;
   -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
   max-width: 100%;
   min-width: 100px;
   background: var(--black);
-  color: white;
+  color: var(--white);
   font-size: 1.2em;
 }
 
@@ -190,14 +193,14 @@ a:hover {
 
 .red-theme {
   background: var(--red);
-  color: #FFF;
+  color: var(--white);
   height: auto;
   min-width: 200px;
 }
 
 .red-theme:hover {
   color: var(--black) ;
-  background: white;
+  background: var(--white);
   border: none;
 
 }
@@ -205,7 +208,7 @@ a:hover {
 .dark-theme:hover {
   border: none;
   color: var(--black);
-  background: white;
+  background: var(--white);
 }
 
 .light-theme {
@@ -213,12 +216,12 @@ a:hover {
 }
 
 .light-theme:hover {
-  color: white;
+  color: var(--white);
   background: var(--black);
 }
 
 .dark-theme {
-  color: white;
+  color: var(--white);
   background: var(--black);
   height: auto;
 }
@@ -242,7 +245,7 @@ a:hover {
 
 .red-hover:hover {
   background: var(--red);
-  color: white;
+  color: var(--white);
 }
 
 .max-width {
