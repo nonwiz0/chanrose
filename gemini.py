@@ -56,20 +56,29 @@ def create_page():
 def update_projects(obj):
     new_link = obj['titleUrl'] + '.html'
     file_path = "./projects.html"
+    file_path_2 = "./index.html"
     open_file = open(file_path)
+    open_file_2 = open(file_path_2)
     text = open_file.read()
+    text2 = open_file_2.read()
+    open_file_2.close()
     open_file.close()
     a_href = f"<a href='./projects/{new_link}' class='btn text-gray light-theme' data-type='{obj['type']}'> {obj['title']} </a>"
     # Add a href button under projects
     text = text.replace("<!-- @{newLink} -->", "<!-- @{newLink} -->\n\t\t\t\t"+ a_href)
+    text2 = text2.replace("<!-- @{newLink} -->", "<!-- @{newLink} -->\n\t\t\t\t"+ a_href)
     # Update footer date
     start_date = "<!-- @{date} -->"
     end_date = "<!-- @{endDate} -->"
     text = text.replace(text[text.find(start_date) + len(start_date) + 1: text.find(end_date) - 1], obj['date'])
+    text2 = text2.replace(text2[text2.find(start_date) + len(start_date) + 1: text2.find(end_date) - 1], obj['date'])
     open_file = open(file_path, 'w')
+    open_file_2 = open(file_path_2, 'w')
     open_file.write(text)
+    open_file_2.write(text2)
     open_file.close()
-    print("updated projects.html successfully")
+    open_file_2.close()
+    print("updated projects.html and index.html successfully")
 
 menu_list = {
     0: create_page,
