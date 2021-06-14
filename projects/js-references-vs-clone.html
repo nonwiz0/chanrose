@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS References vs Clone | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS References vs Clone" />
+    <meta name="description" content="JS References vs Clone: Learning log about day 14 of 30 days JS challenges " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-references-vs-clone.html">
+    <meta property="og:title" content="JS References vs Clone">
+    <meta name="og:description" content="JS References vs Clone: Learning log about day 14 of 30 days JS challenges" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+
+        button {
+          width: 100%;
+          margin-bottom: 5vh;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS References vs Clone </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS References vs Clone</h2>
+      <hr />
+      <p><span class="text-gray">June 14, 2021</span> | Vanilla JS </p>
+      <h4>Normal data type</h4>
+      <pre>
+        <code>
+        let firstNum = 10;
+        let secondNum = firstNum;
+        firstNum++;
+        console.log(firstNum, secondNum);
+      </code>
+      </pre>
+      <p>In case of normal data type such as string, number, boolean, when we give a reference to the other variable.
+        The other variable will just take the value. So whenever we change the first variable, it doesn't affect the other one.</p>
+      <button onclick="example1()"> Run </button>
+      <br />
+      <h4>Array and Objects</h4>
+      <pre>
+        <code>
+        let num = [4, 5, 1];
+        let copyNum = num;
+        num.push(5);
+        console.log(num, copyNum);
+        </code>
+      </pre>
+      <p>In case of array and objects, when you assign an variable to another reference. It will link that object reference. So whenever
+        you make change to the first one, whether you call the first and the second variable, it refers to the same object. In which
+        result in such the same output</p>
+      <button onclick="example2()"> Run </button>
+      <br />
+
+      <h4>Several ways to clone an array and objects</h4>
+      <pre>
+        <code>
+          let num = [4, 5, 1];
+          let copyNum = [...num];
+          let num2 = [...num, data, data];
+          let num3 = num.splice();
+          let num4 = [].concat(num);
+      </code>
+      </pre>
+      <p>There are many way that we can clone an array, ... in which also known as spread operator is very useful and fast in this regard</p>
+      <br />
+      <pre>
+        <code>
+        let obj = {
+          'nickname': 'chanrose',
+          'gamename': 'blubu',
+        }
+        let obj1 = Object.assign({}, obj);
+        let obj2 = Object.assign({}, obj, {'newproperty': 'newvalue'});
+        let newObj = JSON.parse(JSON.stringify(obj));
+      </code>
+      </pre>
+      <p>The disadvantage of copying objects with assign, it only copies the current level but not the deep or next one (it will be the same reference).
+      But anyway, the <code>obj1</code> is purely for copying the object, <code>obj2</code>, copying and assign more new property inside it. JSON seems like
+      not very direct way but it works great for even those in the deeper level.</p> 
+      <br />
+
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      function example1() {
+        let firstNum = 10;
+        let secondNum = firstNum;
+        firstNum++;
+        alert(`First num: ${firstNum}, Second num: ${secondNum}`);
+      };
+
+      function example2() {
+        let num = [4, 5, 1];
+        let copyNum = num;
+        num.push(5);
+        alert(`Num: ${num}, copyNum: ${copyNum}`);
+      }
+ 
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 14, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
