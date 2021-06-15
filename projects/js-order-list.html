@@ -96,6 +96,7 @@
           if (!e.target.matches('input')) return;
           orders[Number(e.target.id)].complete = !orders[Number(e.target.id)].complete
           localStorage.setItem('orders', JSON.stringify(orders));
+          propagateLists(orders, orderLists);
         }
 
         function propagateLists(orders = [], orderLists) {
