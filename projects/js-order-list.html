@@ -90,7 +90,7 @@
         function handleClear() {
           localStorage.removeItem('orders');
           orderLists.innerHTML = "No order";
-          orders = [];
+          orders.length = 0;
         }
 
         function toggleComplete(e) {
