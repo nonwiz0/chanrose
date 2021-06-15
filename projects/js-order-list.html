@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Order List | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Order List" />
+    <meta name="description" content="JS Order List: Day 15 implementation of locla storage and event delegation " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-order-list.html">
+    <meta property="og:title" content="JS Order List">
+    <meta name="og:description" content="JS Order List: Day 15 implementation of locla storage and event delegation" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+
+.checked {
+  text-decoration: line-through;
+}
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Order List </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Order List</h2>
+      <hr />
+      <p><span class="text-gray">June 15, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 15 implementation of locla storage and event delegation
+     </p>
+     <div class="flex-container flex-reverse">
+       <div class="flex-child-card" style="height: auto;">
+         <h4 class="align-center">Remaining:</h4>
+         <ul id="order-lists" class="no-list">
+           <li>Loading</li>
+         </ul>
+         <button onclick="handleClear()" style="width: 100%">Reset</button>
+       </div>
+       <div class="flex-child-card" style="height: auto;">
+         <h4>Add Order</h4>
+         <form id="add-order">
+           <label for="food-choices">Order: </label>
+           <select id="food-choices">
+             <option>Basil Leaf Chicken</option>
+             <option>Fried Rice with Crispy Chicken</option>
+             <option>Basil Leaf Tofu</option>
+             <option>Tom Yum Tofu</option>
+             <option>Garlic Chicken</option>
+           </select>
+           <input type="submit" value="Add" style="float: right; margin: 0 2px 0 2px;"/> <br />
+         </form>
+       </div>
+     </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+        const orderLists = document.querySelector('#order-lists');
+        const addOrder = document.querySelector('#add-order');
+        const orders = JSON.parse(localStorage.getItem('orders')) || [];
+        propagateLists(orders, orderLists);
+
+        function handleClear() {
+          localStorage.removeItem('orders');
+          orderLists.innerHTML = "No order";
+        }
+
+        function toggleComplete(e) {
+          if (!e.target.matches('input')) return;
+          orders[Number(e.target.id)].complete = !orders[Number(e.target.id)].complete
+          localStorage.setItem('orders', JSON.stringify(orders));
+        }
+
+        function propagateLists(orders = [], orderLists) {
+          orderLists.innerHTML = orders.map((item, index) => 
+            (`<li ${item.complete ? "class='checked'" : ""}> 
+              <input type="checkbox" id='${index}' class="order" ${item.complete ? "checked" : ""}> 
+              <label for='${index}'>${item.order}</label>
+              </li>`))
+              .join('');
+          console.log(orderLists);
+        }
+
+        function handleAdd(e) {
+          e.preventDefault();
+          const order = this.querySelector('#food-choices').value;
+          console.log(e, this, order);
+          orders.push({
+            order,
+            'complete': false
+          })
+          propagateLists(orders, orderLists);
+          localStorage.setItem('orders', JSON.stringify(orders));
+          this.reset();
+        }
+
+        addOrder.addEventListener('submit', handleAdd);
+        orderLists.addEventListener('click', toggleComplete);
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 15, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
