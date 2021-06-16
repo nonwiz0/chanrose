@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Shadow Ring | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Shadow Ring" />
+    <meta name="description" content="JS Shadow Ring: Day 16 implementation of Mouse Hover " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-shadow-ring.html">
+    <meta property="og:title" content="JS Shadow Ring">
+    <meta name="og:description" content="JS Shadow Ring: Day 16 implementation of Mouse Hover" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Shadow Ring </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          style="border: 1px solid var(--white); border-radius: 190px;"
+          id="target"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Shadow Ring</h2>
+      <hr />
+      <p><span class="text-gray">June 16, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 16 implementation of Mouse Hover. Try to hover your mouse near my logo up there.
+     </p>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const img = document.querySelector('#target');
+      const shade = 50;
+
+      function shadow(e) {
+        const {offsetWidth:width, offsetHeight: height} = img;
+        let {offsetX: x, offsetY: y} = e;
+        const xShade = Math.round((x / width * shade) - (shade / 2));
+        const yShade = Math.round((y / width * shade) - (shade / 2));
+        img.style.boxShadow = `${xShade}px ${yShade}px 0px var(--black)`;
+
+
+      }
+
+      img.addEventListener('mousemove', shadow);
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 16, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
