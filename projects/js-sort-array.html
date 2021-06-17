@@ -44,14 +44,49 @@
       <hr />
       <p><span class="text-gray">June 17, 2021</span> | Vanilla JS </p>
       <p>
-        Day 17 implementation of sorting an array
-     </p>
+      Day 17 implementation of sorting an array
+      <ul id="lists">
+        <li>Loading</li>
+      </ul>
+      </p>
 
       <br />
       <a href="../index.html"> ↤ Go Back </a>
 
       <!-- End Body -->
     </section>
+    <script>
+      const htmlLists = document.querySelector('#lists');
+      const list = [
+        "A Butorides striatus",
+        "The Tetracerus quadricornis",
+        "Butorides striatus",
+        "A Butorides striatus",
+        "A Balearica pavonina",
+        "Odocoileus hemionus",
+        "The Agkistrodon piscivorus",
+        "Isoodon obesulus",
+        "Ara macao",
+        "An Trachyphonus vaillantii",
+        "Cacatua tenuirostris",
+        "Cracticus nigroagularis",
+        "The Libellula quadrimaculata",
+        "Zalophus californicus",
+        "Macropus giganteus",
+        "Falco peregrinus",
+        "Hippotragus equinus",
+        "The Ara chloroptera",
+        "An Aegypius tracheliotus",
+        "The Casmerodius albus",
+        "A Mycteria ibis"
+     ];
+      function strip(name) {
+        return name.replace(/^(a |the |an )/i, '').trim();
+      }
+      let newList = list.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+      htmlLists.innerHTML = newList.map(item => `<li>${item}</li>`).join('\n'); 
+      console.log(htmlLists)
+    </script>
 
     <section>
       <!-- Footer -->
