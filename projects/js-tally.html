@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Tally | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Tally" />
+    <meta name="description" content="JS Tally: Day 18 implementation of JS 30 " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-tally.html">
+    <meta property="og:title" content="JS Tally">
+    <meta name="og:description" content="JS Tally: Day 18 implementation of JS 30" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+table, tr, td {
+  border: 1px solid var(--black);
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Tally </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Tally</h2>
+      <hr />
+      <p><span class="text-gray">June 18, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 18 implementation of JS 30 
+      </p>
+      <div class="flex-container">
+        <div class="flex-child-card" style="height: auto;">
+        <table>
+          <tr><td>Start</td><td>Finish</td></tr>
+          <tr>
+            <td>13:05</td>
+            <td>15:10</td>
+           </tr>
+          <tr>
+            <td>1:20</td>
+            <td>3:00</td>
+           </tr>
+          <tr>
+            <td>1:00</td>
+            <td>7:10</td>
+           </tr>
+          <tr>
+            <td>10:30</td>
+            <td>12:00</td>
+           </tr>
+          <tr>
+            <td>15:00</td>
+            <td>20:50</td>
+           </tr>
+          <tr>
+            <td>21:05</td>
+            <td>23:15</td>
+           </tr>
+        </table>
+        </div>
+        <div class="flex-child-card dark-theme">
+          <p>Total sum: <span id="total">Calculating</span> </p>
+          <p> What I learned today is about using the reduce,
+          although it is similar to map, it has another useful feature
+          which is to store a temp variable or object. It is kind of convenient.</p>
+        </div>
+      </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      // I want to find a list of all table row
+      let arr = document.querySelectorAll('tr');
+      // convert the NodeList to array
+      arr = [...arr];
+      // Discard the first row (description)
+      arr.shift();
+      // Get a total of time end - time start
+      let total = arr.reduce((total, item) => {
+        // Get two column of start and end time
+        let temp = item.querySelectorAll('td');
+        // Convert "Hr:Min to separate variable"
+        let [hr, min] = temp[0].textContent.split(":");
+        // do the same for the second column
+        let [hr1, min1] = temp[1].textContent.split(":");
+        // Convert string to integer, convert to mins and multiply
+        let [time1, time2] = [(parseInt(hr) * 60) + parseInt(min), (parseInt(hr1) * 60) + parseInt(min1)];
+        console.log(hr, min, hr1, min1);
+        // Find the different and add to store at total
+        console.log((time2-time1));
+        return (total += (time2-time1));
+      }, 0);
+      // Convert the time back to hr and mins
+      document.querySelector('#total').textContent = `${Math.floor(total/60)}:${total % 60}`
+
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 18, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
