@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Camera | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Camera" />
+    <meta name="description" content="JS Camera: Day 19 implementation of Unreal Webcam Fun " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-camera.html">
+    <meta property="og:title" content="JS Camera">
+    <meta name="og:description" content="JS Camera: Day 19 implementation of Unreal Webcam Fun" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+.strip {
+  padding: 2rem;
+}
+
+.strip img {
+  width: 100px;
+  overflow-x: scroll;
+  padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  background: white;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Camera </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Camera</h2>
+      <hr />
+      <p><span class="text-gray">June 19, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 19 implementation of Unreal Webcam Fun
+     </p>
+     <div class="flex-container wrap">
+      <div class="flex-child-card" style="height: auto;">
+         <video class="player"></video>
+         <br />
+         <select id="filter">
+           <option> Math.random ** 2 </option>
+           <option> Red </option>
+           <option> Green </option>
+           </option></select>
+         <button onclick="takePhoto()">Take Photo</button>
+       </div>
+        <div class="flex-child-card" style="height: auto;">
+         <canvas class="photo" style="width: 40vw; height: auto;"></canvas>
+       </div>
+       <div class="flex-child-card red-theme" style="height: auto;">
+         <div class="strip"></div>
+       </div>
+     </div>
+     <audio class="snap" src="../media/30day/snap.mp3" hidden></audio>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script src="./js-camera.js"></script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 19, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
