@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Talk | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Talk" />
+    <meta name="description" content="JS Talk: Day 20 implementation of native speech recognition " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-talk.html">
+    <meta property="og:title" content="JS Talk">
+    <meta name="og:description" content="JS Talk: Day 20 implementation of native speech recognition" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Talk </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Talk</h2>
+      <hr />
+      <p><span class="text-gray">June 20, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 20 implementation of native speech recognition
+     </p>
+     <div class="flex-container">
+       <div class="flex-child-card light-theme full-width">
+         <h3>Try say something in english</h3>
+         <div class="" id="text" contenteditable></div>
+       </div>
+     </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; 
+        const recognition = new SpeechRecognition();
+        recognition.interimResults = true;
+        const text = document.querySelector('#text');
+        let p = document.createElement('p');
+        text.appendChild(p);
+
+        recognition.addEventListener('result', e => {
+          const transcript = [...e.results]
+            .map(result => result[0])
+            .map(result => result.transcript)
+            .join('');
+          console.log(transcript);
+          p.textContent = transcript;
+          if (e.results[0].isFinal) {
+            p = document.createElement('p');
+            text.appendChild(p);
+          }
+          if (transcript.includes('enable dark mode')) {
+            document.documentElement.style.setProperty('--black', 'white');
+            document.documentElement.style.setProperty('--white', '#342E37');
+          }
+          if (transcript.includes('reset')) {
+            document.documentElement.style.setProperty('--black', '#342E37');
+            document.documentElement.style.setProperty('--white', 'white');
+          }
+        })
+
+        recognition.addEventListener('end', recognition.start);
+        recognition.start();
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 20, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
