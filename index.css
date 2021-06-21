@@ -163,6 +163,10 @@ a:hover {
   flex-flow: row wrap !important;
 }
 
+.height-auto {
+  height: auto !important;
+}
+
 .full-width {
   width: 100% !important;
   height: auto;

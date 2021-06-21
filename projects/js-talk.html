@@ -71,7 +71,7 @@
             .map(result => result[0])
             .map(result => result.transcript)
             .join('');
-          console.log(transcript);
+          console.log(e.results, e.results[0]);
           p.textContent = transcript;
           if (e.results[0].isFinal) {
             p = document.createElement('p');
