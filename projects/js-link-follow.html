@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Link Follow | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Link Follow" />
+    <meta name="description" content="JS Link Follow: Day 22 implementation of JS 30 days " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-link-follow.html">
+    <meta property="og:title" content="JS Link Follow">
+    <meta name="og:description" content="JS Link Follow: Day 22 implementation of JS 30 days" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Link Follow </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Link Follow</h2>
+      <hr />
+      <p><span class="text-gray">June 22, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 22 implementation of JS 30 days
+     </p>
+     <div class="flex-container" id="targetMenu">
+       <a href="#">Menu 1</a>
+       <a href="#" style="margin-left: 10px">Menu 2</a>
+       <a href="#" style="margin-left: 10px">Menu 3</a>
+       <a href="#" style="margin-left: 10px">Menu 4</a>
+       <a href="#" style="margin-left: 10px">Longer Menu 5</a>
+     </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const allLinks = document.querySelector('#targetMenu')
+        .querySelectorAll('a');
+      const highlight = document.createElement('span');
+      highlight.style.background = "var(--black)";
+      highlight.style.display = "block";
+      const target = document.querySelector('body');
+      target.appendChild(highlight);
+      highlight.style.zIndex = '-1';
+      highlight.style.position = 'absolute';
+      highlight.style.top = '0';
+      highlight.style.left = '0';
+
+      function highlighting() {
+        const rect = this.getBoundingClientRect();
+        highlight.style.height = `${rect.height}px`;
+        highlight.style.width = `${rect.width}px`;
+        highlight.style.transform = `translate(${rect.left}px, ${rect.top}px)`;
+        console.log(this, rect);
+      }
+
+      allLinks.forEach( link => link.addEventListener('mouseenter', highlighting) );
+
+
+      
+
+
+      
+   </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 22, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
