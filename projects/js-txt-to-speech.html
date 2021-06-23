@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS TXT To Speech | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS TXT To Speech" />
+    <meta name="description" content="JS TXT To Speech: Day 23 implementation of JS 30 days challenges " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-txt-to-speech.html">
+    <meta property="og:title" content="JS TXT To Speech">
+    <meta name="og:description" content="JS TXT To Speech: Day 23 implementation of JS 30 days challenges" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS TXT To Speech </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS TXT To Speech</h2>
+      <hr />
+      <p><span class="text-gray">June 23, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 23 implementation of JS 30 days challenges
+     </p>
+     <div class="flex-container">
+       <div class="flex-child-card height-auto full-width">
+         <label for="text">
+         Text: </label>
+         <br />
+         <textarea name="text" id="text" rows="5" cols="50">
+           Happy Birthday Abang, wish you enjoy your last year here, and
+           earn a lot of money to feed me hehe.
+         </textarea>
+       </div>
+       <div class="flex-child-card height-auto dark-theme full-width">
+         <label for="voices">Voice:</label> <br />
+         <select id="voices" name="voices">
+           <option>Please select a voice</option>
+         </select>
+         <button onclick="stop()"> Stop </button>
+         <button onclick="play()"> Play </button>
+       </div>
+     </div>
+
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+<script>
+  const text = document.querySelector('#text');
+  const select = document.querySelector('#voices');
+  const msg = new SpeechSynthesisUtterance();
+  msg.text = text.value;
+
+  function play() {
+    msg.text = text.value;
+    speechSynthesis.speak(msg);
+  }
+
+  function stop() {
+    speechSynthesis.cancel();
+  }
+
+  function addOptions() {
+    const voiceList = speechSynthesis.getVoices()
+      .filter(voice => voice.lang.includes('en'))
+      .map(voice => `<option value="${voice.name}">${voice.name}</option>`)
+      .join('');
+    select.innerHTML = voiceList;
+  }
+
+  function setVoice() {
+    const selection = speechSynthesis.getVoices()
+      .find(voice => voice.name === `${this.value}`);
+    msg.voice = selection;
+    console.log(msg.voice, selection);
+  }
+
+  document.addEventListener('DOMContentLoaded', addOptions)
+  select.addEventListener('change', setVoice);
+
+
+
+
+</script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 23, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
