@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Handler | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Handler" />
+    <meta name="description" content="JS Handler: Learning log about day 25 of 30 day JS " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-handler.html">
+    <meta property="og:title" content="JS Handler">
+    <meta name="og:description" content="JS Handler: Learning log about day 25 of 30 day JS" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Handler </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Handler</h2>
+      <hr />
+      <p><span class="text-gray">June 25, 2021</span> | Vanilla JS </p>
+      <p>
+      Learning log about day 25 of 30 day JS
+      </p>
+      <div class="flex-container">
+        <main class="flex-child-card height-auto">
+          <div id='outside' style="padding: 50px; background: var(--red);">
+            <div id="inner" style="padding: 50px; background: var(--black);">
+              <div style="padding: 50px; background: var(--white); text-align: center;" id="innest"> Inner Most (Click me)</div>
+            </div>
+          </div>
+        </main>
+        <div class="flex-child-card height-auto dark-theme">
+          <p> Normally, when the element are within another elements, any event will trigger from the inner most until outer part.
+              Depend on circumstance or use, you can change how it works by:</p>
+          <code>element.addEventListener('eventName', functionName, {capture: true})</code>
+          <p> This will reverse the order of the trigger instead, instead of the inner most when you click on the center, 
+          it begins from the outer most instead. By default without adding the {capture: true}, the capture's default value is false </p>
+          <code>event.stopPropagation();</code>
+          <p> This helps the function to run just on the element that is trigger, the nit will not run the outer layer or nest.</p>
+          <code>element.addEventListener('eventName', functionName, {once: true})</code>
+          <p> Once property within this object argument here make the event listener to remove its binding. So it will run just once</p>
+        </div>
+      </div>
+
+
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const divs = document.querySelector('main').querySelectorAll('div');
+      const mainDivs = [...divs];
+
+      function handleClick(e) {
+        console.log(this);
+        e.stopPropagation();
+      }
+
+      mainDivs.forEach(div => div.addEventListener('click', handleClick));
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 25, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
