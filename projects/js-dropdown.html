@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Dropdown | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Dropdown" />
+    <meta name="description" content="JS Dropdown: Day 26 implementation of JS 30 days " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-dropdown.html">
+    <meta property="og:title" content="JS Dropdown">
+    <meta name="og:description" content="JS Dropdown: Day 26 implementation of JS 30 days" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+    <style>
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+  .cool > li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dropdown {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding: 20px;
+    top: -20px;
+    border-radius: 2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+  }
+
+  .trigger-enter .dropdown {
+    display: block;
+  }
+
+  .trigger-enter-active .dropdown {
+    opacity: 1;
+  }
+
+  .dropdownBackground {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+    transition: all 0.3s, opacity 0.1s, transform 0.2s;
+    transform-origin: 50% 0;
+    display: flex;
+    justify-content: center;
+    opacity:0;
+  }
+
+  .dropdownBackground.open {
+    opacity: 1;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Dropdown </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Dropdown</h2>
+      <hr />
+      <p><span class="text-gray">June 27, 2021</span> | Vanilla JS </p>
+      <p>
+      Day 26 implementation of JS 30 days
+      </p>
+      <nav class="top">
+        <div class="dropdownBackground">
+          <span class="arrow"></span>
+        </div>
+        <ul class="cool">
+          <li>
+            <a href="#">Menu 0</a>
+            <div class="dropdown dropdown1">
+              <p>Test paragraph lorem ipsum dropdown test paragraph</p>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Menu 1</a>
+            <div class="dropdown dropdown1">
+              <button> Button 0</button>
+              <br />
+              <button> Button 1</button>
+              <br />
+              <button> Button 2</button>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Menu 2</a>
+            <div class="dropdown dropdown1">
+              <p>Test paragraph</p>
+              <p>Another new paragraph</p>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Menu 3</a>
+            <div class="dropdown dropdown1">
+              <p>Test paragraph</p>
+              <p>New paragraph 1</p>
+              <p>Others</p>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+      const triggers = document.querySelectorAll('.cool > li');
+      const bg = document.querySelector(".dropdownBackground");
+      const nav = document.querySelector('.top');
+
+      function handleEnter() {
+        console.log("enter triggers");
+        this.classList.add('trigger-enter');
+        setTimeout(() => (this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150));
+        console.log(this);
+        bg.classList.add('open');
+        const dropdown = this.querySelector('.dropdown');
+        const bound = dropdown.getBoundingClientRect();
+        const coords = {
+          left: bound.left - nav.getBoundingClientRect().left,
+          top: bound.top - nav.getBoundingClientRect().top
+        }
+        bg.style.width = `${bound.width}px`;
+        bg.style.height = `${bound.height}px`;
+        bg.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+      }
+
+      function handleLeave() {
+        console.log("leave triggers");
+        this.classList.remove('trigger-enter', 'trigger-enter-active');
+        bg.classList.remove('open');
+      }
+
+      [...triggers].forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+      [...triggers].forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+
+
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 27, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
