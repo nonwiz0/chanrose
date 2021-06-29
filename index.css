@@ -119,6 +119,9 @@ a:hover {
 .mt-short {
   margin-top: 1rem;
 }
+.mb-short {
+  margin-bottom: 1rem;
+}
 
 .margin-bot {
     margin: 0 0 5vh 0;

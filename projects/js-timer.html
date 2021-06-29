@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Timer | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Timer" />
+    <meta name="description" content="JS Timer: Day 29 implementation of 30 day JS " />
+    <meta name="author" content="Chan Broset" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chanrose.cor.run/projects/js-timer.html">
+    <meta property="og:title" content="JS Timer">
+    <meta name="og:description" content="JS Timer: Day 29 implementation of 30 day JS" />
+    <meta property="og:image" content="./images/chanrose-og.png">
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Timer </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Timer</h2>
+      <hr />
+      <p><span class="text-gray">June 29, 2021</span> | Vanilla JS </p>
+      <p>
+        Day 29 implementation of 30 day JS
+     </p>
+     <div class="flex-container">
+       <div class="flex-child-card height-auto full-width align-center">
+         <h1 id="remaining">!Queue</h1>
+         <p id="end">End at </p>
+       </div>
+       <div class="flex-child-card height-auto dark-theme">
+         <form name="timer" class="mb-short">
+           <input type="number" placeholder="Mins" name="countminutes" />
+         </form>
+
+         <button onclick="counter(60)">60 Sec</button>
+         <button style="float: right" onclick="counter(300)">5 Min</button>
+       </div>
+
+     </div>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+        let countdown; 
+
+        const [remaining, endCount] = [
+          document.querySelector('#remaining'), 
+          document.querySelector('#end')
+        ];
+
+        function counter(seconds) {
+          clearInterval(countdown);
+          // Create a ms var
+          const now = Date.now();
+          // Pass the seconds to then var
+          // 1000 refers to the milliseconds
+          const then = now + (seconds * 1000);
+          displayEndTime(then);
+          const remainingSec = Math.round((then - now) / 1000);
+          displayRemaining(remainingSec);
+
+          countdown = setInterval(() => {
+            const remaining = Math.round((then - Date.now()) / 1000);
+            if (remaining < 0) {
+              clearInterval(countdown);
+              return;
+            }
+            displayRemaining(remaining);
+          }, 1000);
+
+        }
+
+        function displayRemaining(seconds) {
+          const min = Math.floor(seconds/60);
+          const sec = seconds % 60;
+          const remainder = `${min}:${ (sec >= 10) ? "" : "0"}${sec}`;
+          console.log({remainder})
+          remaining.textContent = remainder;
+          return remainder;
+        }
+
+        function displayEndTime(endMs) {
+          const end = new Date(endMs);
+          const endText = `Back at ${end.getHours()}:${end.getMinutes() < 10 ? '0': ''}${end.getMinutes()}`
+          endCount.textContent = endText;
+        }
+
+        document.timer.addEventListener('submit', function (e) {
+          e.preventDefault();
+          console.log(this, document.timer.countminutes);
+          counter(parseInt(document.timer.countminutes.value) * 60);
+          this.reset();
+        });
+
+
+
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in June 29, 2021 <br /> 
+        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+        <a href="mailto:chanrose@pm.me">Proton</a> | 
+        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+        <a href="https://github.com/chanrose">Github</a>
+        <br />
+        Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
