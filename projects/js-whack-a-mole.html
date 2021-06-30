@@ -152,9 +152,9 @@ body {
         document.querySelector('#level'),
         document.querySelector('#score'),
       ];
-      let lastHole, lastMole;
-      let [playing, currentScore] = [
-        false, 0
+      let lastHole;
+      let [playing, currentScore, click] = [
+        false, 0, false
       ];
 
       function randHole(holes) {
@@ -167,16 +167,18 @@ body {
       }
 
       function randTime(min, max) {
-        if (level.selectedOptions[0].text == 'Easy') {
-          min = 200;
-        }
-        let time = Math.floor(Math.random() * (max - min) + min);
+       const time = Math.floor(Math.random() * (max - min) + min);
        return time;
       }
 
       function peep() {
+        let [min, max] = [50, level.value];
+        if (level.selectedOptions[0].text == 'Easy') {
+          min = 200;
+          max = 1500;
+        }
         const [time, hole] = [
-          randTime(50, level.value),
+          randTime(min, max),
           randHole(holes)
         ]
         hole.classList.add('up');
@@ -189,16 +191,19 @@ body {
 
       function startGame() {
         [currentScore, score.textContent] = [0, 0];
-        playing = true;
+        [playing, click] = [true, false];
         peep();
         setTimeout(() => playing = false, 10000);
       }
 
       moles.forEach(mole => mole.addEventListener('click', (e) => {
         if (!e.isTrusted) return;
+        click = !click;
+        if (click) {
         currentScore++;
         score.textContent = currentScore;
         console.log("you got me", e.isTrusted, currentScore);
+        }
       }))
 
 
