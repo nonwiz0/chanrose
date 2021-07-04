@@ -51,6 +51,7 @@
         <li> <abbr title="World Health Organization">WHO</abbr> </li>
         <li> <abbr title="How are you?"> HRU </abbr> </li>
         <li> <abbr title="Code on Run"> COR </abbr> </li>
+        <li> <abbr>TOR</abbr> </li>
       </ul>
 
       <br />
@@ -63,7 +64,15 @@
 
         abbrs.forEach(abbr => {
          // when mouse click on abbr
-          abbr.addEventListener('click', () => ([abbr.textContent, abbr.title] = [abbr.title, abbr.textContent]));
+          abbr.addEventListener('click', () => (
+            [
+              abbr.textContent, 
+              abbr.title
+            ] = [
+              abbr.title ? abbr.title : abbr.textContent + " (No Title) ",
+              abbr.textContent
+            ]
+          ));
         });
 
 
