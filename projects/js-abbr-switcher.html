@@ -10,6 +10,12 @@
     <meta name="title" content="JS Abbr Switcher" />
     <meta name="description" content="JS Abbr Switcher: Switchable abbr when click on the element, challenge by avanier " />
     <meta name="author" content="Chan Broset" />
+<style>
+  abbr:hover {
+    background-color: yellow;
+    cursor: pointer;
+  }
+</style>
   </head>
 
   <body>
@@ -54,18 +60,11 @@
     </section>
     <script>
         const abbrs = document.querySelectorAll('abbr');
-        abbrs.forEach(abbr => abbr.addEventListener('click', () => 
-          ([abbr.textContent, abbr.title] = [abbr.title, abbr.textContent])
-        ));
 
-        abbrs.forEach(abbr => abbr.addEventListener('mouseover', () => {
-          abbr.style.background = 'yellow';
-        }));
-
-       abbrs.forEach(abbr => abbr.addEventListener('mouseout', () => {
-          abbr.style.background = 'none';
-          abbr.style.cursor = 'pointer';
-        }));
+        abbrs.forEach(abbr => {
+         // when mouse click on abbr
+          abbr.addEventListener('click', () => ([abbr.textContent, abbr.title] = [abbr.title, abbr.textContent]));
+        });
 
 
     </script>
