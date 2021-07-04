@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en"> 
-  <meta charset="UTF-8">
+<html lang="en">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <head>
     <title>Broset | Portfolio</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="icon" href="./images/logo-dark.svg" />
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Broset's Portfolio">
+    <meta name="title" content="Broset's Portfolio" />
     <meta
       name="description"
-      content="Checkout Broset's interests, recent projects, and experience." /> 
+      content="Checkout Broset's interests, recent projects, and experience."
+    />
     <meta name="keywords" content="Chanrose, Portfolio, Cambodian Developer" />
     <meta name="author" content="Chan Broset" />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chanrose.cor.run">
-    <meta property="og:title" content="Broset's Portfolio">
-    <meta property="og:description" content="Check out Broset's interests, projects, logs, challenges, and bookmarks.">
-    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chanrose.cor.run" />
+    <meta property="og:title" content="Broset's Portfolio" />
+    <meta
+      property="og:description"
+      content="Check out Broset's interests, projects, logs, challenges, and bookmarks."
+    />
+    <meta property="og:image" content="./images/chanrose-og.png" />
   </head>
 
   <body>
     <section>
       <!-- Heading / Menu -->
-      <p class=" text-gray">Challenging 30 days JS </p>
+      <p class="text-gray">Challenging 30 days JS</p>
       <div class="align-center">
         <img
           src="./images/logo-dark.svg"
@@ -31,12 +35,16 @@
           width="150 px"
           class="logo"
           alt="chanbroset's logo"
-          /> 
+        />
       </div>
       <div class="flex-container no-wrap">
-        <a href="./index.html" class="btn text-gray dark-theme" style="">Home</a> 
+        <a href="./index.html" class="btn text-gray dark-theme" style=""
+          >Home</a
+        >
         <a href="./projects.html" class="btn text-gray light-theme">Projects</a>
-        <a href="./challenges.html" class="btn text-gray light-theme" style="">Challenges</a>
+        <a href="./challenges.html" class="btn text-gray light-theme" style=""
+          >Challenges</a
+        >
       </div>
       <! -- End Header -->
     </section>
@@ -45,18 +53,28 @@
       <! -- Body -->
       <h2 class="margin-top">Introduction</h2>
       <hr />
-      <p> Hi, I'm Broset. Other than playing games and reading my favorite light novels, I want to become a developer. So far, I have grown fond of web applications. It’s really nice to develop an app once and run it on multiple platforms. Aside from working my way to become a web developer, I also find another interest in IoT projects. Anyway, here is some of my recent projects:
+      <p>
+        Hi, I'm Broset. Other than playing games and reading my favorite light
+        novels, I want to become a developer. So far, I have grown fond of web
+        applications. It’s really nice to develop an app once and run it on
+        multiple platforms. Aside from working my way to become a web developer,
+        I also find another interest in IoT projects. Anyway, here is some of my
+        recent projects:
       </p>
       <div class="flex-container flex-reverse">
         <div class="flex-child-card dark-theme longer-width max-width">
-          <h3> Schedule Schemer</h3>
+          <h3>Schedule Schemer</h3>
           <p>
-          <a href="./projects/schedule-schemer.html">Schedule Schemer</a>, web application built with Django, one of my latest project, used to generate students schedule base on their selection in which managed by the admin access or the school's registrar. <a href="https://blubu.pythonanywhere.com">Check out</a> 
+            <a href="./projects/schedule-schemer.html">Schedule Schemer</a>, web
+            application built with Django, one of my latest project, used to
+            generate students schedule base on their selection in which managed
+            by the admin access or the school's registrar.
+            <a href="https://blubu.pythonanywhere.com">Check out</a>
           </p>
         </div>
         <div class="flex-child-card red-theme max-width">
-          <h3> Status </h3>
-          <ul style="list-style: none;" id="projects-list">
+          <h3>Status</h3>
+          <ul style="list-style: none" id="projects-list">
             <li>Loading...</li>
           </ul>
         </div>
@@ -64,118 +82,359 @@
 
       <div id="projects" class="flex-container wrap align-center">
         <!-- @{newLink} -->
-				<a href='./projects/js-whack-a-mole.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Whack a Mole </a>
-				<a href='./projects/js-timer.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Timer </a>
-				<a href='./projects/js-video-speed-controller.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Video Speed Controller </a>
-				<a href='./projects/js-mouse-interface.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Mouse Interface </a>
-				<a href='./projects/js-dropdown.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Dropdown </a>
-				<a href='./projects/js-handler.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Handler </a>
-				<a href='./projects/js-sticky-nav.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Sticky Nav </a>
-				<a href='./projects/js-txt-to-speech.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS TXT To Speech </a>
-				<a href='./projects/js-link-follow.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Link Follow </a>
-				<a href='./projects/js-geo-com.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Geo Com </a>
-				<a href='./projects/js-talk.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Talk </a>
-				<a href='./projects/js-camera.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Camera </a>
-				<a href='./projects/js-tally.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Tally </a>
-				<a href='./projects/js-sort-array.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Sort Array </a>
-				<a href='./projects/js-shadow-ring.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Shadow Ring </a>
-				<a href='./projects/js-order-list.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Order List </a>
-				<a href='./projects/js-references-vs-clone.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS References vs Clone </a>
-				<a href='./projects/js-slide-from-roll.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Slide from Roll </a>
-			  <a href='./projects/js-secret-code.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Secret Code </a>
-				<a href='./projects/js-html5.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS HTML5 </a>
-        <a href="./projects/js-to-do.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS To Do </a>
-        <a href="./projects/js-console.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Console </a>
-        <a href="./projects/js-canvas.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Canvas </a>
-        <a href="./projects/js-arr-p2.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Array P2 </a>
-        <a href="./projects/js-ajax.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Ajax </a>
-        <a href="./projects/js-flex-panel.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Flex Panel </a>
-        <a href="./projects/js-arr.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Array </a>
-        <a href="./projects/js-css-var.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS CSS Var </a>
-        <a href="./projects/js-clock.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Analog Clock </a>
-        <a href="./projects/js-piano.html" class="btn text-gray light-theme" data-type="Vanilla JS"> JS Piano </a>
-        <a href="./projects/schedule-schemer.html" class="btn text-gray light-theme" data-type="Web App"> Schedule Schemer </a>
-        <a href="./projects/traffic-optimizer.html" class="btn text-gray light-theme" data-type="IoT"> Traffic Optimizer </a>
-        <a href="./projects/transaction-system.html" class="btn text-gray light-theme" data-type="Web App"> Transaction System </a>
-        <a href="./projects/my-tracker.html" class="btn text-gray light-theme" data-type="PWA"> My Tracker </a>
-        <a href="./projects/note-keeper.html" class="btn text-gray light-theme" data-type="Web App"> Note Keeper </a>
-        <a href="./projects/vehicle-legal-system.html" class="btn text-gray light-theme" data-type="PWA"> Vehicle Legal System </a>
-        <a href="./projects/alumni-management-system.html"  class="btn text-gray light-theme" data-type="Web App"> Alumni Management System </a>
-        <a href="./projects/the-writer.html" class="btn text-gray light-theme" data-type="Content Management System"> The Writer </a>
+				<a href='./projects/js-abbr-switcher.html' class='btn text-gray light-theme' data-type='Vanilla JS'> JS Abbr Switcher </a>
+        <a
+          href="./projects/js-whack-a-mole.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Whack a Mole
+        </a>
+        <a
+          href="./projects/js-timer.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Timer
+        </a>
+        <a
+          href="./projects/js-video-speed-controller.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Video Speed Controller
+        </a>
+        <a
+          href="./projects/js-mouse-interface.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Mouse Interface
+        </a>
+        <a
+          href="./projects/js-dropdown.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Dropdown
+        </a>
+        <a
+          href="./projects/js-handler.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Handler
+        </a>
+        <a
+          href="./projects/js-sticky-nav.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Sticky Nav
+        </a>
+        <a
+          href="./projects/js-txt-to-speech.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS TXT To Speech
+        </a>
+        <a
+          href="./projects/js-link-follow.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Link Follow
+        </a>
+        <a
+          href="./projects/js-geo-com.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Geo Com
+        </a>
+        <a
+          href="./projects/js-talk.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Talk
+        </a>
+        <a
+          href="./projects/js-camera.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Camera
+        </a>
+        <a
+          href="./projects/js-tally.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Tally
+        </a>
+        <a
+          href="./projects/js-sort-array.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Sort Array
+        </a>
+        <a
+          href="./projects/js-shadow-ring.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Shadow Ring
+        </a>
+        <a
+          href="./projects/js-order-list.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Order List
+        </a>
+        <a
+          href="./projects/js-references-vs-clone.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS References vs Clone
+        </a>
+        <a
+          href="./projects/js-slide-from-roll.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Slide from Roll
+        </a>
+        <a
+          href="./projects/js-secret-code.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Secret Code
+        </a>
+        <a
+          href="./projects/js-html5.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS HTML5
+        </a>
+        <a
+          href="./projects/js-to-do.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS To Do
+        </a>
+        <a
+          href="./projects/js-console.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Console
+        </a>
+        <a
+          href="./projects/js-canvas.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Canvas
+        </a>
+        <a
+          href="./projects/js-arr-p2.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Array P2
+        </a>
+        <a
+          href="./projects/js-ajax.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Ajax
+        </a>
+        <a
+          href="./projects/js-flex-panel.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Flex Panel
+        </a>
+        <a
+          href="./projects/js-arr.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Array
+        </a>
+        <a
+          href="./projects/js-css-var.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS CSS Var
+        </a>
+        <a
+          href="./projects/js-clock.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Analog Clock
+        </a>
+        <a
+          href="./projects/js-piano.html"
+          class="btn text-gray light-theme"
+          data-type="Vanilla JS"
+        >
+          JS Piano
+        </a>
+        <a
+          href="./projects/schedule-schemer.html"
+          class="btn text-gray light-theme"
+          data-type="Web App"
+        >
+          Schedule Schemer
+        </a>
+        <a
+          href="./projects/traffic-optimizer.html"
+          class="btn text-gray light-theme"
+          data-type="IoT"
+        >
+          Traffic Optimizer
+        </a>
+        <a
+          href="./projects/transaction-system.html"
+          class="btn text-gray light-theme"
+          data-type="Web App"
+        >
+          Transaction System
+        </a>
+        <a
+          href="./projects/my-tracker.html"
+          class="btn text-gray light-theme"
+          data-type="PWA"
+        >
+          My Tracker
+        </a>
+        <a
+          href="./projects/note-keeper.html"
+          class="btn text-gray light-theme"
+          data-type="Web App"
+        >
+          Note Keeper
+        </a>
+        <a
+          href="./projects/vehicle-legal-system.html"
+          class="btn text-gray light-theme"
+          data-type="PWA"
+        >
+          Vehicle Legal System
+        </a>
+        <a
+          href="./projects/alumni-management-system.html"
+          class="btn text-gray light-theme"
+          data-type="Web App"
+        >
+          Alumni Management System
+        </a>
+        <a
+          href="./projects/the-writer.html"
+          class="btn text-gray light-theme"
+          data-type="Content Management System"
+        >
+          The Writer
+        </a>
       </div>
       <script>
-        fetch('https://chanrose.cor.run/projects.html').then(blob => blob.text()).then(html => {
-          const parser = new DOMParser();
-          html = parser.parseFromString(html, 'text/html');
-          html = html.lastChild;
-          const projectsList = document.querySelector('#projects-list');
-          const projects = html.querySelector('#projects');
-          const allProjects = projects.querySelectorAll('a');
-          const categories = [...allProjects].reduce((obj, item) => {
-            item = item.dataset.type || '';
-            if (!obj[item]) {
-              obj[item] = 0}
-            obj[item]++;
-            return obj;
-          }, {})
-          let temp = "";
-          Object.entries(categories).sort((a, b) => {
-            const [keyA, valA] = a;
-            const [keyB, valB] = b;
-            return valA < valB ? 1 : -1;
-          }).forEach(entry => {
-            const [key, val] = entry;
-            temp += `<li>${key}: ${val}</li>`;
+        fetch("https://chanrose.cor.run/projects.html")
+          .then((blob) => blob.text())
+          .then((html) => {
+            const parser = new DOMParser();
+            html = parser.parseFromString(html, "text/html");
+            html = html.lastChild;
+            const projectsList = document.querySelector("#projects-list");
+            const projects = html.querySelector("#projects");
+            const allProjects = projects.querySelectorAll("a");
+            const categories = [...allProjects].reduce((obj, item) => {
+              item = item.dataset.type || "";
+              if (!obj[item]) {
+                obj[item] = 0;
+              }
+              obj[item]++;
+              return obj;
+            }, {});
+            let temp = "";
+            Object.entries(categories)
+              .sort((a, b) => {
+                const [keyA, valA] = a;
+                const [keyB, valB] = b;
+                return valA < valB ? 1 : -1;
+              })
+              .forEach((entry) => {
+                const [key, val] = entry;
+                temp += `<li>${key}: ${val}</li>`;
+              });
+            projectsList.innerHTML =
+              `<li>Total Projects: ${projects.childElementCount}</li>` + temp;
           })
-          projectsList.innerHTML = `<li>Total Projects: ${projects.childElementCount}</li>` + temp;
-
-        }).catch(err => console.log(err));
-
+          .catch((err) => console.log(err));
       </script>
 
       <h2 class="margin-top">Experience</h2>
       <hr />
-      <p> These are the tools that I familiar with: </p>
+      <p>These are the tools that I familiar with:</p>
       <div class="flex-container align-center text-gray">
         <div class="flex-child-card red-hover">
-          Web Application <hr />
-          Boostrap + Django 
+          Web Application
+          <hr />
+          Boostrap + Django
         </div>
         <div class="flex-child-card red-hover">
-          Micro Controller <hr />
-          ESP32 + Micropython 
+          Micro Controller
+          <hr />
+          ESP32 + Micropython
         </div>
         <div class="flex-child-card red-hover">
-          Content Management <hr />
+          Content Management
+          <hr />
           Wordpress + Divi
         </div>
         <div class="flex-child-card red-hover">
-          Mobile Application <hr />
-          React + Ionic + Firebase 
+          Mobile Application
+          <hr />
+          React + Ionic + Firebase
         </div>
         <div class="flex-child-card red-hover">
-          Frequently Used <hr />
+          Frequently Used
+          <hr />
           Python + JavaScript
         </div>
-
       </div>
       <br />
 
       <!-- End Body -->
     </section>
 
-
     <section>
       <!-- Footer -->
       <hr class="margin-top" />
       <div class="align-center">
-       <p>Updated in <!-- @{date} --> June 30, 2021 <!-- @{endDate} --> <br /> 
-        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
-        <a href="mailto:chanrose@pm.me">Proton</a> | 
-        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
-        <a href="https://github.com/chanrose">Github</a>
-        <br />
-        Alright reserved 2021
+        <p>
+          Updated in
+          <!-- @{date} -->
+July 04, 2021 <!-- @{endDate} -->
+          <br />
+          <a href="mailto:bdchanbroset@gmail.com">Gmail</a> |
+          <a href="mailto:chanrose@pm.me">Proton</a> |
+          <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+          <a href="https://github.com/chanrose">Github</a>
+          <br />
+          Alright reserved 2021
         </p>
       </div>
       <!-- End Footer -->

@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <head>
-    <title> JS Whack a Mole | projects</title>
+    <title>JS Whack a Mole | projects</title>
     <link rel="stylesheet" type="text/css" href="../index.css" />
-    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <link rel="icon" href="../images/logo-dark.svg" />
     <meta name="title" content="JS Whack a Mole" />
-    <meta name="description" content="JS Whack a Mole: Day 30 implementation of Wes Bos 30 days JS challenges " />
+    <meta
+      name="description"
+      content="JS Whack a Mole: Day 30 implementation of Wes Bos 30 days JS challenges "
+    />
     <meta name="author" content="Chan Broset" />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chanrose.cor.run/projects/js-whack-a-mole.html">
-    <meta property="og:title" content="JS Whack a Mole">
-    <meta name="og:description" content="JS Whack a Mole: Day 30 implementation of Wes Bos 30 days JS challenges" />
-    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://chanrose.cor.run/projects/js-whack-a-mole.html"
+    />
+    <meta property="og:title" content="JS Whack a Mole" />
+    <meta
+      name="og:description"
+      content="JS Whack a Mole: Day 30 implementation of Wes Bos 30 days JS challenges"
+    />
+    <meta property="og:image" content="./images/chanrose-og.png" />
     <style>
-body {
-  box-sizing: border-box;
-}
+      body {
+        box-sizing: border-box;
+      }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
 
-.game {
-  width: 600px;
-  height: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  cursor: pointer;
-}
+      .game {
+        width: 600px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        cursor: pointer;
+      }
 
-.hole {
-  flex: 1 0 33.33%;
-  overflow: hidden;
-  position: relative;
-}
+      .hole {
+        flex: 1 0 33.33%;
+        overflow: hidden;
+        position: relative;
+      }
 
-.hole:after {
-  display: block;
-  background: url('../media/30day/dirt.svg') bottom center no-repeat;
-  background-size: contain;
-  content: '';
-  width: 100%;
-  height:70px;
-  position: absolute;
-  z-index: 2;
-  bottom: -30px;
-}
+      .hole:after {
+        display: block;
+        background: url("../media/30day/dirt.svg") bottom center no-repeat;
+        background-size: contain;
+        content: "";
+        width: 100%;
+        height: 70px;
+        position: absolute;
+        z-index: 2;
+        bottom: -30px;
+      }
 
-.mole {
-  background: url('../media/30day/mole.svg') bottom center no-repeat;
-  background-size: 40%;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  height: 90%;
-  transition:all 0.3s;
-}
+      .mole {
+        background: url("../media/30day/mole.svg") bottom center no-repeat;
+        background-size: 40%;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 90%;
+        transition: all 0.3s;
+      }
 
-.hole.up .mole {
-  top: 0;
-}
-
-
+      .hole.up .mole {
+        top: 0;
+      }
     </style>
   </head>
 
   <body>
     <section>
       <!-- Heading / Menu -->
-      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Whack a Mole </p>
+      <p class="text-gray">
+        <a href="../projects.html">Projects</a> > JS Whack a Mole
+      </p>
       <div class="align-center">
         <img
           src="../images/logo-dark.svg"
@@ -80,12 +91,14 @@ body {
           width="150 px"
           class="logo"
           alt="chanbroset's logo"
-          /> 
+        />
       </div>
       <div class="flex-container no-wrap">
-        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../index.html" class="btn text-gray light-theme">Home</a>
         <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
-        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+        <a href="../challenges.html" class="btn text-gray light-theme"
+          >Challenges</a
+        >
       </div>
       <! -- End Header -->
     </section>
@@ -94,49 +107,46 @@ body {
       <! -- Body -->
       <h2 class="margin-top">JS Whack a Mole</h2>
       <hr />
-      <p><span class="text-gray">June 30, 2021</span> | Vanilla JS </p>
-      <p>
-      Day 30 implementation of Wes Bos 30 days JS challenges
-      </p>
+      <p><span class="text-gray">June 30, 2021</span> | Vanilla JS</p>
+      <p>Day 30 implementation of Wes Bos 30 days JS challenges</p>
       <div class="flex-container">
-        <div class="flex-child-card height-auto" style="background: lightgreen;">
+        <div class="flex-child-card height-auto" style="background: lightgreen">
           <div class="game">
-          <div class="hole hole1">
-            <div class="mole"></div>
-          </div> 
+            <div class="hole hole1">
+              <div class="mole"></div>
+            </div>
 
-          <div class="hole hole2">
-            <div class="mole"></div>
-          </div> 
+            <div class="hole hole2">
+              <div class="mole"></div>
+            </div>
 
-          <div class="hole hole3">
-            <div class="mole"></div>
-          </div> 
+            <div class="hole hole3">
+              <div class="mole"></div>
+            </div>
 
-          <div class="hole hole4">
-            <div class="mole"></div>
-          </div> 
+            <div class="hole hole4">
+              <div class="mole"></div>
+            </div>
 
-          <div class="hole hole5">
-            <div class="mole"></div>
-          </div> 
+            <div class="hole hole5">
+              <div class="mole"></div>
+            </div>
 
-          <div class="hole hole6">
-            <div class="mole"></div>
-          </div> 
-        </div>
-        <div class="align-center">
-        <p>Score: <span id="score">0</span> </p>
-        <select id="level">
-          <option value='1000'>Easy</option>
-          <option value='700'>Medium</option>
-          <option value='500'>Hard</option>
-          <option value='200'>Extreme</option>
-          <option value='100'>Godly</option>
-        </select>
-        <button onClick="startGame()">Start</button>
-        </div>
-        
+            <div class="hole hole6">
+              <div class="mole"></div>
+            </div>
+          </div>
+          <div class="align-center">
+            <p>Score: <span id="score">0</span></p>
+            <select id="level">
+              <option value="1000">Easy</option>
+              <option value="700">Medium</option>
+              <option value="500">Hard</option>
+              <option value="200">Extreme</option>
+              <option value="100">Godly</option>
+            </select>
+            <button onClick="startGame()">Start</button>
+          </div>
         </div>
       </div>
 
@@ -146,16 +156,14 @@ body {
       <!-- End Body -->
     </section>
     <script>
-      const [holes, moles, level, score] =  [
-        document.querySelectorAll('.hole'),
-        document.querySelectorAll('.mole'),
-        document.querySelector('#level'),
-        document.querySelector('#score'),
+      const [holes, moles, level, score] = [
+        document.querySelectorAll(".hole"),
+        document.querySelectorAll(".mole"),
+        document.querySelector("#level"),
+        document.querySelector("#score"),
       ];
       let lastHole;
-      let [playing, currentScore, click] = [
-        false, 0, false
-      ];
+      let [playing, currentScore, click] = [false, 0, false];
 
       function randHole(holes) {
         const hole = Math.floor(Math.random() * holes.length);
@@ -167,61 +175,56 @@ body {
       }
 
       function randTime(min, max) {
-       const time = Math.floor(Math.random() * (max - min) + min);
-       return time;
+        const time = Math.floor(Math.random() * (max - min) + min);
+        return time;
       }
 
       function peep() {
         let [min, max] = [50, level.value];
-        if (level.selectedOptions[0].text == 'Easy') {
+        if (level.selectedOptions[0].text == "Easy") {
           min = 200;
           max = 1500;
         }
-        const [time, hole] = [
-          randTime(min, max),
-          randHole(holes)
-        ]
-        hole.classList.add('up');
+        const [time, hole] = [randTime(min, max), randHole(holes)];
+        hole.classList.add("up");
         setTimeout(() => {
-          hole.classList.remove('up');
+          hole.classList.remove("up");
           if (playing) peep();
         }, time);
-
       }
 
       function startGame() {
         [currentScore, score.textContent] = [0, 0];
         [playing, click] = [true, false];
         peep();
-        setTimeout(() => playing = false, 10000);
+        setTimeout(() => (playing = false), 10000);
       }
 
-      moles.forEach(mole => mole.addEventListener('click', (e) => {
-        if (!e.isTrusted) return;
-        click = !click;
-        if (click) {
-        currentScore++;
-        score.textContent = currentScore;
-        console.log("you got me", e.isTrusted, currentScore);
-        }
-      }))
-
-
-
-
+      moles.forEach((mole) =>
+        mole.addEventListener("click", (e) => {
+          if (!e.isTrusted) return;
+          click = !click;
+          if (click) {
+            currentScore++;
+            score.textContent = currentScore;
+            console.log("you got me", e.isTrusted, currentScore);
+          }
+        })
+      );
     </script>
 
     <section>
       <!-- Footer -->
       <hr class="margin-top" />
       <div class="align-center">
-        <p>Updated in June 30, 2021 <br /> 
-        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
-        <a href="mailto:chanrose@pm.me">Proton</a> | 
-        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
-        <a href="https://github.com/chanrose">Github</a>
-        <br />
-        Alright reserved 2021
+        <p>
+          Updated in June 30, 2021 <br />
+          <a href="mailto:bdchanbroset@gmail.com">Gmail</a> |
+          <a href="mailto:chanrose@pm.me">Proton</a> |
+          <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+          <a href="https://github.com/chanrose">Github</a>
+          <br />
+          Alright reserved 2021
         </p>
       </div>
       <!-- End Footer -->

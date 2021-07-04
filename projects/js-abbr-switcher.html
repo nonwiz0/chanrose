@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <head>
+    <title> JS Abbr Switcher | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" /> 
+    <meta name="title" content="JS Abbr Switcher" />
+    <meta name="description" content="JS Abbr Switcher: Switchable abbr when click on the element, challenge by avanier " />
+    <meta name="author" content="Chan Broset" />
+  </head>
+
+  <body>
+    <section>
+      <!-- Heading / Menu -->
+      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Abbr Switcher </p>
+      <div class="align-center">
+        <img
+          src="../images/logo-dark.svg"
+          height="150 px"
+          width="150 px"
+          class="logo"
+          alt="chanbroset's logo"
+          /> 
+      </div>
+      <div class="flex-container no-wrap">
+        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
+        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+      </div>
+      <! -- End Header -->
+    </section>
+
+    <section>
+      <! -- Body -->
+      <h2 class="margin-top">JS Abbr Switcher</h2>
+      <hr />
+      <p><span class="text-gray">July 04, 2021</span> | Vanilla JS </p>
+      <p>
+        Try to click on the abbreviation:
+      </p>
+      <ul>
+        <li> <abbr title="World Health Organization">WHO</abbr> </li>
+        <li> <abbr title="How are you?"> HRU </abbr> </li>
+        <li> <abbr title="Code on Run"> COR </abbr> </li>
+      </ul>
+
+      <br />
+      <a href="../index.html"> ↤ Go Back </a>
+
+      <!-- End Body -->
+    </section>
+    <script>
+        const abbrs = document.querySelectorAll('abbr');
+        abbrs.forEach(abbr => abbr.addEventListener('click', () => 
+          ([abbr.textContent, abbr.title] = [abbr.title, abbr.textContent])
+        ));
+
+        abbrs.forEach(abbr => abbr.addEventListener('mouseover', () => {
+          abbr.style.background = 'yellow';
+        }));
+
+       abbrs.forEach(abbr => abbr.addEventListener('mouseout', () => {
+          abbr.style.background = 'none';
+          abbr.style.cursor = 'pointer';
+        }));
+
+
+    </script>
+
+    <section>
+      <!-- Footer -->
+      <hr class="margin-top" />
+      <div class="align-center">
+        <p>Updated in July 04, 2021 <br /> 
+          <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
+          <a href="mailto:chanrose@pm.me">Proton</a> | 
+          <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+          <a href="https://github.com/chanrose">Github</a>
+          <br />
+          Alright reserved 2021
+        </p>
+      </div>
+      <!-- End Footer -->
+    </section>
+  </body>
+</html>
