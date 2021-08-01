@@ -1,18 +1,36 @@
-<!DOCTYPE html> <html lang="en"> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1" /> <head> <title> JS Geo Com | projects</title> <link rel="stylesheet" type="text/css" href="../index.css" /> <link rel="icon" href="../images/logo-dark.svg" /> 
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <title>JS Geo Com | projects</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <link rel="icon" href="../images/logo-dark.svg" />
     <meta name="title" content="JS Geo Com" />
-    <meta name="description" content="JS Geo Com: Day 21 implementation of 30 days JS " />
+    <meta
+      name="description"
+      content="JS Geo Com: Day 21 implementation of 30 days JS "
+    />
     <meta name="author" content="Chan Broset" />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chanrose.cor.run/projects/js-geo-com.html">
-    <meta property="og:title" content="JS Geo Com">
-    <meta name="og:description" content="JS Geo Com: Day 21 implementation of 30 days JS" />
-    <meta property="og:image" content="./images/chanrose-og.png">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://chanrose.cor.run/projects/js-geo-com.html"
+    />
+    <meta property="og:title" content="JS Geo Com" />
+    <meta
+      name="og:description"
+      content="JS Geo Com: Day 21 implementation of 30 days JS"
+    />
+    <meta property="og:image" content="./images/chanrose-og.png" />
   </head>
 
   <body>
     <section>
       <!-- Heading / Menu -->
-      <p class="text-gray"><a href="../projects.html">Projects</a> > JS Geo Com </p>
+      <p class="text-gray">
+        <a href="../projects.html">Projects</a> > JS Geo Com
+      </p>
       <div class="align-center">
         <img
           src="../images/logo-dark.svg"
@@ -20,12 +38,14 @@
           width="150 px"
           class="logo"
           alt="chanbroset's logo"
-          /> 
+        />
       </div>
       <div class="flex-container no-wrap">
-        <a href="../index.html" class="btn text-gray light-theme">Home</a> 
+        <a href="../index.html" class="btn text-gray light-theme">Home</a>
         <a href="../projects.html" class="btn text-gray dark-theme">Projects</a>
-        <a href="../challenges.html" class="btn text-gray light-theme">Challenges</a>
+        <a href="../challenges.html" class="btn text-gray light-theme"
+          >Challenges</a
+        >
       </div>
       <! -- End Header -->
     </section>
@@ -34,18 +54,16 @@
       <! -- Body -->
       <h2 class="margin-top">JS Geo Com</h2>
       <hr />
-      <p><span class="text-gray">June 21, 2021</span> | Vanilla JS </p>
-      <p>
-        Day 21 implementation of 30 days JS
-     </p>
-     <div class="flex-container">
-       <div class="flex-child-card height-auto">
-         <img id="compass" src="../media/30day/compass.png" height="300" />
-       </div>
-       <div class="flex-child-card dark-theme longer-width">
-         <p> Current Speed: <span id="speed"></span> </p>
-       </div>
-     </div>
+      <p><span class="text-gray">June 21, 2021</span> | Vanilla JS</p>
+      <p>Day 21 implementation of 30 days JS</p>
+      <div class="flex-container">
+        <div class="flex-child-card height-auto">
+          <img id="compass" src="../media/30day/compass.png" height="300" />
+        </div>
+        <div class="flex-child-card dark-theme longer-width">
+          <p>Current Speed: <span id="speed"></span></p>
+        </div>
+      </div>
 
       <br />
       <a href="../index.html"> ↤ Go Back </a>
@@ -53,32 +71,35 @@
       <!-- End Body -->
     </section>
     <script>
-      const compass = document.querySelector('#compass');
-      const speed = document.querySelector('#speed');
-      
-      navigator.geolocation.watchPosition(data => {
-        console.log(data);
-        speed.textContent = `${data.coords.speed} km/hr`;
-        compass.style.transform = `rotate(${data.coords.heading}deg)`;
-      }, error => {
-        console.log(error);
-      });
+      const compass = document.querySelector("#compass");
+      const speed = document.querySelector("#speed");
+
+      navigator.geolocation.watchPosition(
+        (data) => {
+          console.log(data);
+          speed.textContent = `${data.coords.speed} km/hr`;
+          compass.style.transform = `rotate(${data.coords.heading}deg)`;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
       // another one is getCurrentPosition
       // Watch position gives data overtime
-
     </script>
 
     <section>
       <!-- Footer -->
       <hr class="margin-top" />
       <div class="align-center">
-        <p>Updated in June 21, 2021 <br /> 
-        <a href="mailto:bdchanbroset@gmail.com">Gmail</a> | 
-        <a href="mailto:chanrose@pm.me">Proton</a> | 
-        <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
-        <a href="https://github.com/chanrose">Github</a>
-        <br />
-        Alright reserved 2021
+        <p>
+          Updated in June 21, 2021 <br />
+          <a href="mailto:bdchanbroset@gmail.com">Gmail</a> |
+          <a href="mailto:chanrose@pm.me">Proton</a> |
+          <a href="https://www.linkedin.com/in/broset777/">LinkedIn</a> |
+          <a href="https://github.com/chanrose">Github</a>
+          <br />
+          Alright reserved 2021
         </p>
       </div>
       <!-- End Footer -->

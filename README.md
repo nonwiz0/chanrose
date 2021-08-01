@@ -4,7 +4,7 @@
 - ~~Fix menu navigation~~
 - ~~Update the meta for social media~~
 
-# Chanrose
+## Chanrose
 
 This repository is mainly use personally for my projects. You can visit my site at [Chanrose](https://chanrose.cor.run).
 
@@ -16,6 +16,7 @@ This repository is mainly use personally for my projects. You can visit my site 
 
 ## Project list
 
+- [Blockchain-based Product Identification](https://github.com/chanrose/productid-django)
 - [Schedule Schemer](https://github.com/chanrose/scheduleschemer)
 - [Transaction System](https://github.com/chanrose/transactionsystem)
 - [NoteKeeper](https://github.com/chanrose/notebook)
@@ -26,6 +27,7 @@ This repository is mainly use personally for my projects. You can visit my site 
 - [mysite's Code](https://github.com/chanrose/mysite)
 
 ## What I familiar with:
+
 - HTML & CSS
 - JavaScript, JQuery, React
 - Bootstrap, Ionic
@@ -33,8 +35,13 @@ This repository is mainly use personally for my projects. You can visit my site 
 - Python, Django
 - !PHP, !Java 
 
+## Recently
+
+- Solidity & Truffle
+- Vyper
+- Brownie
+
 ## Favorite:
-- [Onedark theme](https://github.com/joshdick/onedark.vim)
-- [Vim for python](https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4/)
+
 - [PopOS](https://pop.system76.com/)
 
