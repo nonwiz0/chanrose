@@ -3,6 +3,7 @@
 - ~~Create a new logo and layout~~
 - ~~Fix menu navigation~~
 - ~~Update the meta for social media~~
+- **Moving to Gitlab**
 
 ## Chanrose
 
